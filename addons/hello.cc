@@ -50,7 +50,8 @@ void Method(const FunctionCallbackInfo<Value>& args) {
 
   Py_Finalize();
 
-  args.GetReturnValue().Set(d_Val);
+  args.GetReturnValue().Set(String::NewFromUtf8(isolate, result->ob_type->tp_name));
+  // args.GetReturnValue().Set(d_Val);
 
   // args.GetReturnValue().Set(String::NewFromUtf8(isolate, native_string.c_str()));
 }

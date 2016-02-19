@@ -1,6 +1,6 @@
  hello
 
- Timestamp is 56c6e6b3 (Fri Feb 19 16:56:03 2016)
+ Timestamp is 56c6e9f5 (Fri Feb 19 17:09:57 2016)
 
  Preferred load address is 0000000180000000
 
@@ -29,21 +29,21 @@
  0002:00007720 00000008H .rtc$IZZ                DATA
  0002:00007728 00000008H .rtc$TAA                DATA
  0002:00007730 00000008H .rtc$TZZ                DATA
- 0002:00007738 00000904H .xdata                  DATA
- 0002:00008040 0000017cH .xdata$x                DATA
- 0002:000081bc 00000020H .didat$2                DATA
- 0002:000081dc 00000020H .didat$3                DATA
- 0002:00008200 00000080H .didat$4                DATA
- 0002:00008280 0000037eH .didat$6                DATA
- 0002:00008600 00000080H .didat$7                DATA
- 0002:00008680 0000004eH .edata                  DATA
- 0002:000086d0 00000028H .idata$2                DATA
- 0002:000086f8 00000014H .idata$3                DATA
- 0002:00008710 00000288H .idata$4                DATA
- 0002:00008998 000005ecH .idata$6                DATA
+ 0002:00007738 000008fcH .xdata                  DATA
+ 0002:00008038 0000017cH .xdata$x                DATA
+ 0002:000081b4 00000020H .didat$2                DATA
+ 0002:000081d4 00000020H .didat$3                DATA
+ 0002:000081f8 00000078H .didat$4                DATA
+ 0002:00008270 0000033eH .didat$6                DATA
+ 0002:000085b0 00000078H .didat$7                DATA
+ 0002:00008630 0000004eH .edata                  DATA
+ 0002:00008680 00000028H .idata$2                DATA
+ 0002:000086a8 00000014H .idata$3                DATA
+ 0002:000086c0 00000288H .idata$4                DATA
+ 0002:00008948 000005ecH .idata$6                DATA
  0003:00000000 00001808H .data                   DATA
  0003:00001808 000000e8H .data$r                 DATA
- 0003:000018f0 00000080H .didat$5                DATA
+ 0003:000018f0 00000078H .didat$5                DATA
  0003:00001980 00002498H .bss                    DATA
  0004:00000000 00000a68H .pdata                  DATA
  0005:00000000 00000058H .rsrc$01                DATA
@@ -58,49 +58,48 @@
  0000:00000000       ___safe_se_handler_table   0000000000000000     <absolute>
  0000:00000000       __ImageBase                0000000180000000     <linker-defined>
  0001:00000020       ?Method@demo@@YAXAEBV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z 0000000180001020 f   hello.obj
- 0001:00000270       ?init@demo@@YAXV?$Local@VObject@v8@@@v8@@@Z 0000000180001270 f   hello.obj
- 0001:000002a0       ?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV12@AEBV12@_K1@Z 00000001800012a0 f i hello.obj
- 0001:000003d0       ?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV12@PEBD_K@Z 00000001800013d0 f i hello.obj
- 0001:00000510       ?erase@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV12@_K0@Z 0000000180001510 f i hello.obj
- 0001:000005e0       ?_Copy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAX_K0@Z 00000001800015e0 f i hello.obj
- 0001:000006d0       ??$NODE_SET_METHOD@V?$Local@VObject@v8@@@v8@@@node@@YAXAEBV?$Local@VObject@v8@@@v8@@PEBDP6AXAEBV?$FunctionCallbackInfo@VValue@v8@@@2@@Z@Z 00000001800016d0 f i hello.obj
- 0001:000007dc       __imp_load_node_module_register 00000001800017dc f   node:node.exe
- 0001:000007e8       __tailMerge_node_exe       00000001800017e8 f i node:node.exe
- 0001:00000861       __imp_load_?NumberValue@Value@v8@@QEBANXZ 0000000180001861 f   node:node.exe
- 0001:0000086d       __imp_load_?GetFunction@FunctionTemplate@v8@@QEAA?AV?$Local@VFunction@v8@@@2@XZ 000000018000186d f   node:node.exe
- 0001:00000879       __imp_load_?New@FunctionTemplate@v8@@SA?AV?$Local@VFunctionTemplate@v8@@@2@PEAVIsolate@2@P6AXAEBV?$FunctionCallbackInfo@VValue@v8@@@2@@ZV?$Local@VValue@v8@@@2@V?$Local@VSignature@v8@@@2@H@Z 0000000180001879 f   node:node.exe
- 0001:00000885       __imp_load_??1Utf8Value@String@v8@@QEAA@XZ 0000000180001885 f   node:node.exe
- 0001:00000891       __imp_load_??0Utf8Value@String@v8@@QEAA@V?$Local@VValue@v8@@@2@@Z 0000000180001891 f   node:node.exe
- 0001:0000089d       __imp_load_?NewFromUtf8@String@v8@@SA?AV?$Local@VString@v8@@@2@PEAVIsolate@2@PEBDW4NewStringType@12@H@Z 000000018000189d f   node:node.exe
- 0001:000008a9       __imp_load_??1HandleScope@v8@@QEAA@XZ 00000001800018a9 f   node:node.exe
- 0001:000008b5       __imp_load_??0HandleScope@v8@@QEAA@PEAVIsolate@1@@Z 00000001800018b5 f   node:node.exe
- 0001:000008c1       __imp_load_?New@Number@v8@@SA?AV?$Local@VNumber@v8@@@2@PEAVIsolate@2@N@Z 00000001800018c1 f   node:node.exe
- 0001:000008cd       __imp_load_?Get@Object@v8@@QEAA?AV?$Local@VValue@v8@@@2@V32@@Z 00000001800018cd f   node:node.exe
- 0001:000008d9       __imp_load_?Set@Object@v8@@QEAA_NV?$Local@VValue@v8@@@2@0@Z 00000001800018d9 f   node:node.exe
- 0001:000008e5       __imp_load_?SetName@Function@v8@@QEAAXV?$Local@VString@v8@@@2@@Z 00000001800018e5 f   node:node.exe
- 0001:000008f1       __imp_load_?GetCurrent@Isolate@v8@@SAPEAV12@XZ 00000001800018f1 f   node:node.exe
- 0001:000008fd       __imp_load_?ToString@Value@v8@@QEBA?AV?$Local@VString@v8@@@2@XZ 00000001800018fd f   node:node.exe
- 0001:0000090c       ??0bad_alloc@std@@QEAA@AEBV01@@Z 000000018000190c f i libcpmt:xthrow.obj
- 0001:00000930       ??0length_error@std@@QEAA@AEBV01@@Z 0000000180001930 f i libcpmt:xthrow.obj
- 0001:00000954       ??0logic_error@std@@QEAA@AEBV01@@Z 0000000180001954 f i libcpmt:xthrow.obj
- 0001:00000978       ??0out_of_range@std@@QEAA@AEBV01@@Z 0000000180001978 f i libcpmt:xthrow.obj
- 0001:0000099c       ??1bad_alloc@std@@UEAA@XZ  000000018000199c f i libcpmt:xthrow.obj
- 0001:000009ac       ??1out_of_range@std@@UEAA@XZ 00000001800019ac f i libcpmt:xthrow.obj
- 0001:000009ac       ??1length_error@std@@UEAA@XZ 00000001800019ac f i libcpmt:xthrow.obj
- 0001:000009b4       ??_Gbad_alloc@std@@UEAAPEAXI@Z 00000001800019b4 f i libcpmt:xthrow.obj
- 0001:000009b4       ??_Ebad_alloc@std@@UEAAPEAXI@Z 00000001800019b4 f i libcpmt:xthrow.obj
- 0001:000009f0       ??_Glogic_error@std@@UEAAPEAXI@Z 00000001800019f0 f i libcpmt:xthrow.obj
- 0001:000009f0       ??_Glength_error@std@@UEAAPEAXI@Z 00000001800019f0 f i libcpmt:xthrow.obj
- 0001:000009f0       ??_Elogic_error@std@@UEAAPEAXI@Z 00000001800019f0 f i libcpmt:xthrow.obj
- 0001:000009f0       ??_Elength_error@std@@UEAAPEAXI@Z 00000001800019f0 f i libcpmt:xthrow.obj
- 0001:000009f0       ??_Eout_of_range@std@@UEAAPEAXI@Z 00000001800019f0 f i libcpmt:xthrow.obj
- 0001:000009f0       ??_Gout_of_range@std@@UEAAPEAXI@Z 00000001800019f0 f i libcpmt:xthrow.obj
- 0001:00000a20       ?_Xbad_alloc@std@@YAXXZ    0000000180001a20 f   libcpmt:xthrow.obj
- 0001:00000a64       ?_Xlength_error@std@@YAXPEBD@Z 0000000180001a64 f   libcpmt:xthrow.obj
- 0001:00000a9c       ?_Xout_of_range@std@@YAXPEBD@Z 0000000180001a9c f   libcpmt:xthrow.obj
+ 0001:00000280       ?init@demo@@YAXV?$Local@VObject@v8@@@v8@@@Z 0000000180001280 f   hello.obj
+ 0001:000002b0       ?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV12@AEBV12@_K1@Z 00000001800012b0 f i hello.obj
+ 0001:000003e0       ?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV12@PEBD_K@Z 00000001800013e0 f i hello.obj
+ 0001:00000520       ?erase@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV12@_K0@Z 0000000180001520 f i hello.obj
+ 0001:000005f0       ?_Copy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAX_K0@Z 00000001800015f0 f i hello.obj
+ 0001:000006e0       ??$NODE_SET_METHOD@V?$Local@VObject@v8@@@v8@@@node@@YAXAEBV?$Local@VObject@v8@@@v8@@PEBDP6AXAEBV?$FunctionCallbackInfo@VValue@v8@@@2@@Z@Z 00000001800016e0 f i hello.obj
+ 0001:000007ec       __imp_load_node_module_register 00000001800017ec f   node:node.exe
+ 0001:000007f8       __tailMerge_node_exe       00000001800017f8 f i node:node.exe
+ 0001:00000871       __imp_load_?NumberValue@Value@v8@@QEBANXZ 0000000180001871 f   node:node.exe
+ 0001:0000087d       __imp_load_?GetFunction@FunctionTemplate@v8@@QEAA?AV?$Local@VFunction@v8@@@2@XZ 000000018000187d f   node:node.exe
+ 0001:00000889       __imp_load_?New@FunctionTemplate@v8@@SA?AV?$Local@VFunctionTemplate@v8@@@2@PEAVIsolate@2@P6AXAEBV?$FunctionCallbackInfo@VValue@v8@@@2@@ZV?$Local@VValue@v8@@@2@V?$Local@VSignature@v8@@@2@H@Z 0000000180001889 f   node:node.exe
+ 0001:00000895       __imp_load_??1Utf8Value@String@v8@@QEAA@XZ 0000000180001895 f   node:node.exe
+ 0001:000008a1       __imp_load_??0Utf8Value@String@v8@@QEAA@V?$Local@VValue@v8@@@2@@Z 00000001800018a1 f   node:node.exe
+ 0001:000008ad       __imp_load_?NewFromUtf8@String@v8@@SA?AV?$Local@VString@v8@@@2@PEAVIsolate@2@PEBDW4NewStringType@12@H@Z 00000001800018ad f   node:node.exe
+ 0001:000008b9       __imp_load_??1HandleScope@v8@@QEAA@XZ 00000001800018b9 f   node:node.exe
+ 0001:000008c5       __imp_load_??0HandleScope@v8@@QEAA@PEAVIsolate@1@@Z 00000001800018c5 f   node:node.exe
+ 0001:000008d1       __imp_load_?Get@Object@v8@@QEAA?AV?$Local@VValue@v8@@@2@V32@@Z 00000001800018d1 f   node:node.exe
+ 0001:000008dd       __imp_load_?Set@Object@v8@@QEAA_NV?$Local@VValue@v8@@@2@0@Z 00000001800018dd f   node:node.exe
+ 0001:000008e9       __imp_load_?SetName@Function@v8@@QEAAXV?$Local@VString@v8@@@2@@Z 00000001800018e9 f   node:node.exe
+ 0001:000008f5       __imp_load_?GetCurrent@Isolate@v8@@SAPEAV12@XZ 00000001800018f5 f   node:node.exe
+ 0001:00000901       __imp_load_?ToString@Value@v8@@QEBA?AV?$Local@VString@v8@@@2@XZ 0000000180001901 f   node:node.exe
+ 0001:00000910       ??0bad_alloc@std@@QEAA@AEBV01@@Z 0000000180001910 f i libcpmt:xthrow.obj
+ 0001:00000934       ??0length_error@std@@QEAA@AEBV01@@Z 0000000180001934 f i libcpmt:xthrow.obj
+ 0001:00000958       ??0logic_error@std@@QEAA@AEBV01@@Z 0000000180001958 f i libcpmt:xthrow.obj
+ 0001:0000097c       ??0out_of_range@std@@QEAA@AEBV01@@Z 000000018000197c f i libcpmt:xthrow.obj
+ 0001:000009a0       ??1bad_alloc@std@@UEAA@XZ  00000001800019a0 f i libcpmt:xthrow.obj
+ 0001:000009b0       ??1length_error@std@@UEAA@XZ 00000001800019b0 f i libcpmt:xthrow.obj
+ 0001:000009b0       ??1out_of_range@std@@UEAA@XZ 00000001800019b0 f i libcpmt:xthrow.obj
+ 0001:000009b8       ??_Gbad_alloc@std@@UEAAPEAXI@Z 00000001800019b8 f i libcpmt:xthrow.obj
+ 0001:000009b8       ??_Ebad_alloc@std@@UEAAPEAXI@Z 00000001800019b8 f i libcpmt:xthrow.obj
+ 0001:000009f4       ??_Elogic_error@std@@UEAAPEAXI@Z 00000001800019f4 f i libcpmt:xthrow.obj
+ 0001:000009f4       ??_Gout_of_range@std@@UEAAPEAXI@Z 00000001800019f4 f i libcpmt:xthrow.obj
+ 0001:000009f4       ??_Glength_error@std@@UEAAPEAXI@Z 00000001800019f4 f i libcpmt:xthrow.obj
+ 0001:000009f4       ??_Elength_error@std@@UEAAPEAXI@Z 00000001800019f4 f i libcpmt:xthrow.obj
+ 0001:000009f4       ??_Glogic_error@std@@UEAAPEAXI@Z 00000001800019f4 f i libcpmt:xthrow.obj
+ 0001:000009f4       ??_Eout_of_range@std@@UEAAPEAXI@Z 00000001800019f4 f i libcpmt:xthrow.obj
+ 0001:00000a24       ?_Xbad_alloc@std@@YAXXZ    0000000180001a24 f   libcpmt:xthrow.obj
+ 0001:00000a68       ?_Xlength_error@std@@YAXPEBD@Z 0000000180001a68 f   libcpmt:xthrow.obj
+ 0001:00000aa0       ?_Xout_of_range@std@@YAXPEBD@Z 0000000180001aa0 f   libcpmt:xthrow.obj
  0001:00000af0       __security_check_cookie    0000000180001af0 f   LIBCMT:amdsecgs.obj
- 0001:00000b20       memmove                    0000000180001b20 f   LIBCMT:memcpy.obj
  0001:00000b20       memcpy                     0000000180001b20 f   LIBCMT:memcpy.obj
+ 0001:00000b20       memmove                    0000000180001b20 f   LIBCMT:memcpy.obj
  0001:00001088       __onexitinit               0000000180002088 f   LIBCMT:onexit.obj
  0001:000010cc       _onexit                    00000001800020cc f   LIBCMT:onexit.obj
  0001:000011d8       atexit                     00000001800021d8 f   LIBCMT:onexit.obj
@@ -114,8 +113,8 @@
  0001:000015a4       _DllMainCRTStartup         00000001800025a4 f   LIBCMT:dllcrt0.obj
  0001:00001720       strlen                     0000000180002720 f   LIBCMT:strlen.obj
  0001:000017c8       _CxxThrowException         00000001800027c8 f   LIBCMT:throw.obj
- 0001:00001890       ??_Etype_info@@UEAAPEAXI@Z 0000000180002890 f i LIBCMT:typinfo.obj
  0001:00001890       ??_Gtype_info@@UEAAPEAXI@Z 0000000180002890 f i LIBCMT:typinfo.obj
+ 0001:00001890       ??_Etype_info@@UEAAPEAXI@Z 0000000180002890 f i LIBCMT:typinfo.obj
  0001:000018cc       _fpmath                    00000001800028cc f   LIBCMT:fpinit.obj
  0001:000018d4       _cfltcvt_init              00000001800028d4 f   LIBCMT:fpinit.obj
  0001:0000195c       ??0exception@std@@QEAA@AEBQEBD@Z 000000018000295c f   LIBCMT:stdexcpt.obj
@@ -1272,24 +1271,24 @@
  0002:00007720       __rtc_izz                  0000000180014720     LIBCMT:initsect.obj
  0002:00007728       __rtc_taa                  0000000180014728     LIBCMT:initsect.obj
  0002:00007730       __rtc_tzz                  0000000180014730     LIBCMT:initsect.obj
- 0002:00008040       _TI2?AVbad_alloc@std@@     0000000180015040     libcpmt:xthrow.obj
- 0002:00008060       _CTA2?AVbad_alloc@std@@    0000000180015060     libcpmt:xthrow.obj
- 0002:00008078       _CT??_R0?AVbad_alloc@std@@@8??0bad_alloc@std@@QEAA@AEBV01@@Z24 0000000180015078     libcpmt:xthrow.obj
- 0002:000080a0       _CT??_R0?AVexception@std@@@8??0exception@std@@QEAA@AEBV01@@Z24 00000001800150a0     libcpmt:xthrow.obj
- 0002:000080c8       _CT??_R0?AVlogic_error@std@@@8??0logic_error@std@@QEAA@AEBV01@@Z24 00000001800150c8     libcpmt:xthrow.obj
- 0002:000080f0       _TI3?AVlength_error@std@@  00000001800150f0     libcpmt:xthrow.obj
- 0002:00008110       _CTA3?AVlength_error@std@@ 0000000180015110     libcpmt:xthrow.obj
- 0002:00008130       _CT??_R0?AVlength_error@std@@@8??0length_error@std@@QEAA@AEBV01@@Z24 0000000180015130     libcpmt:xthrow.obj
- 0002:00008158       _TI3?AVout_of_range@std@@  0000000180015158     libcpmt:xthrow.obj
- 0002:00008178       _CTA3?AVout_of_range@std@@ 0000000180015178     libcpmt:xthrow.obj
- 0002:00008198       _CT??_R0?AVout_of_range@std@@@8??0out_of_range@std@@QEAA@AEBV01@@Z24 0000000180015198     libcpmt:xthrow.obj
- 0002:000081bc       __DELAY_IMPORT_DESCRIPTOR_node_exe 00000001800151bc     node:node.exe
- 0002:000081dc       __NULL_DELAY_IMPORT_DESCRIPTOR 00000001800151dc     node:node.exe
- 0002:00008278       \177node_NULL_THUNK_DATA_DLN 0000000180015278     node:node.exe
- 0002:00008608       \177node_NULL_THUNK_DATA_DLB 0000000180015608     node:node.exe
- 0002:000086d0       __IMPORT_DESCRIPTOR_KERNEL32 00000001800156d0     kernel32:KERNEL32.dll
- 0002:000086e4       __IMPORT_DESCRIPTOR_python27 00000001800156e4     python27:python27.dll
- 0002:000086f8       __NULL_IMPORT_DESCRIPTOR   00000001800156f8     kernel32:KERNEL32.dll
+ 0002:00008038       _TI2?AVbad_alloc@std@@     0000000180015038     libcpmt:xthrow.obj
+ 0002:00008058       _CTA2?AVbad_alloc@std@@    0000000180015058     libcpmt:xthrow.obj
+ 0002:00008070       _CT??_R0?AVbad_alloc@std@@@8??0bad_alloc@std@@QEAA@AEBV01@@Z24 0000000180015070     libcpmt:xthrow.obj
+ 0002:00008098       _CT??_R0?AVexception@std@@@8??0exception@std@@QEAA@AEBV01@@Z24 0000000180015098     libcpmt:xthrow.obj
+ 0002:000080c0       _CT??_R0?AVlogic_error@std@@@8??0logic_error@std@@QEAA@AEBV01@@Z24 00000001800150c0     libcpmt:xthrow.obj
+ 0002:000080e8       _TI3?AVlength_error@std@@  00000001800150e8     libcpmt:xthrow.obj
+ 0002:00008108       _CTA3?AVlength_error@std@@ 0000000180015108     libcpmt:xthrow.obj
+ 0002:00008128       _CT??_R0?AVlength_error@std@@@8??0length_error@std@@QEAA@AEBV01@@Z24 0000000180015128     libcpmt:xthrow.obj
+ 0002:00008150       _TI3?AVout_of_range@std@@  0000000180015150     libcpmt:xthrow.obj
+ 0002:00008170       _CTA3?AVout_of_range@std@@ 0000000180015170     libcpmt:xthrow.obj
+ 0002:00008190       _CT??_R0?AVout_of_range@std@@@8??0out_of_range@std@@QEAA@AEBV01@@Z24 0000000180015190     libcpmt:xthrow.obj
+ 0002:000081b4       __DELAY_IMPORT_DESCRIPTOR_node_exe 00000001800151b4     node:node.exe
+ 0002:000081d4       __NULL_DELAY_IMPORT_DESCRIPTOR 00000001800151d4     node:node.exe
+ 0002:00008268       \177node_NULL_THUNK_DATA_DLN 0000000180015268     node:node.exe
+ 0002:000085b8       \177node_NULL_THUNK_DATA_DLB 00000001800155b8     node:node.exe
+ 0002:00008680       __IMPORT_DESCRIPTOR_KERNEL32 0000000180015680     kernel32:KERNEL32.dll
+ 0002:00008694       __IMPORT_DESCRIPTOR_python27 0000000180015694     python27:python27.dll
+ 0002:000086a8       __NULL_IMPORT_DESCRIPTOR   00000001800156a8     kernel32:KERNEL32.dll
  0003:00000000       _fltused                   0000000180016000     LIBCMT:fpinit.obj
  0003:00000004       _ldused                    0000000180016004     LIBCMT:fpinit.obj
  0003:00000008       __security_cookie          0000000180016008     LIBCMT:gs_cookie.obj
@@ -1343,13 +1342,12 @@
  0003:00001920       __imp_?NewFromUtf8@String@v8@@SA?AV?$Local@VString@v8@@@2@PEAVIsolate@2@PEBDW4NewStringType@12@H@Z 0000000180017920     node:node.exe
  0003:00001928       __imp_??1HandleScope@v8@@QEAA@XZ 0000000180017928     node:node.exe
  0003:00001930       __imp_??0HandleScope@v8@@QEAA@PEAVIsolate@1@@Z 0000000180017930     node:node.exe
- 0003:00001938       __imp_?New@Number@v8@@SA?AV?$Local@VNumber@v8@@@2@PEAVIsolate@2@N@Z 0000000180017938     node:node.exe
- 0003:00001940       __imp_?Get@Object@v8@@QEAA?AV?$Local@VValue@v8@@@2@V32@@Z 0000000180017940     node:node.exe
- 0003:00001948       __imp_?Set@Object@v8@@QEAA_NV?$Local@VValue@v8@@@2@0@Z 0000000180017948     node:node.exe
- 0003:00001950       __imp_?SetName@Function@v8@@QEAAXV?$Local@VString@v8@@@2@@Z 0000000180017950     node:node.exe
- 0003:00001958       __imp_?GetCurrent@Isolate@v8@@SAPEAV12@XZ 0000000180017958     node:node.exe
- 0003:00001960       __imp_?ToString@Value@v8@@QEBA?AV?$Local@VString@v8@@@2@XZ 0000000180017960     node:node.exe
- 0003:00001968       \177node_NULL_THUNK_DATA_DLA 0000000180017968     node:node.exe
+ 0003:00001938       __imp_?Get@Object@v8@@QEAA?AV?$Local@VValue@v8@@@2@V32@@Z 0000000180017938     node:node.exe
+ 0003:00001940       __imp_?Set@Object@v8@@QEAA_NV?$Local@VValue@v8@@@2@0@Z 0000000180017940     node:node.exe
+ 0003:00001948       __imp_?SetName@Function@v8@@QEAAXV?$Local@VString@v8@@@2@@Z 0000000180017948     node:node.exe
+ 0003:00001950       __imp_?GetCurrent@Isolate@v8@@SAPEAV12@XZ 0000000180017950     node:node.exe
+ 0003:00001958       __imp_?ToString@Value@v8@@QEBA?AV?$Local@VString@v8@@@2@XZ 0000000180017958     node:node.exe
+ 0003:00001960       \177node_NULL_THUNK_DATA_DLA 0000000180017960     node:node.exe
  0003:00001980       __hmod__node_exe           0000000180017980     node:node.exe
  0003:00001998       _aenvptr                   0000000180017998     LIBCMT:dllcrt0.obj
  0003:000019a0       _wenvptr                   00000001800179a0     LIBCMT:dllcrt0.obj
@@ -1433,8 +1431,9 @@
  0000:fffe3000       .debug$S                   0000000180000000     node:node.exe
  0000:fffe3000       .debug$S                   0000000180000000     node:node.exe
  0000:fffe3000       .debug$S                   0000000180000000     node:node.exe
- 0000:fffe3000       .debug$S                   0000000180000000     python27:python27.dll
- 0000:fffe3000       .debug$S                   0000000180000000     python27:python27.dll
+ 0000:fffe3000       .debug$S                   0000000180000000     node:node.exe
+ 0000:fffe3000       .debug$S                   0000000180000000     node:node.exe
+ 0000:fffe3000       .debug$S                   0000000180000000     node:node.exe
  0000:fffe3000       .debug$S                   0000000180000000     python27:python27.dll
  0000:fffe3000       .debug$S                   0000000180000000     python27:python27.dll
  0000:fffe3000       .debug$S                   0000000180000000     python27:python27.dll
@@ -1443,18 +1442,16 @@
  0000:fffe3000       .debug$S                   0000000180000000     python27:python27.dll
  0000:fffe3000       .debug$S                   0000000180000000     node:node.exe
  0000:fffe3000       .debug$S                   0000000180000000     node:node.exe
- 0000:fffe3000       .debug$S                   0000000180000000     python27:python27.dll
- 0000:fffe3000       .debug$S                   0000000180000000     python27:python27.dll
- 0000:fffe3000       .debug$S                   0000000180000000     python27:python27.dll
  0000:fffe3000       .debug$S                   0000000180000000     node:node.exe
+ 0000:fffe3000       .debug$S                   0000000180000000     python27:python27.dll
+ 0000:fffe3000       .debug$S                   0000000180000000     python27:python27.dll
+ 0000:fffe3000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe3000       .debug$S                   0000000180000000     python27:python27.dll
+ 0000:fffe3000       .debug$S                   0000000180000000     python27:python27.dll
  0000:fffe3000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
  0000:fffe3000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe3000       .debug$S                   0000000180000000     python27:python27.dll
  0000:fffe3000       .debug$S                   0000000180000000     node:node.exe
- 0000:fffe3000       .debug$S                   0000000180000000     node:node.exe
- 0000:fffe3000       .debug$S                   0000000180000000     node:node.exe
- 0000:fffe3000       .debug$S                   0000000180000000     node:node.exe
- 0000:fffe3000       .debug$S                   0000000180000000     node:node.exe
- 0000:fffe3000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
  0000:fffe3000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
  0000:fffe3000       .debug$S                   0000000180000000     node:node.exe
  0000:fffe3000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
@@ -1537,8 +1534,8 @@
  0000:fffe3000       .debug$S                   0000000180000000     node:node.exe
  0001:00000000       ??__Epiecewise_construct@std@@YAXXZ 0000000180001000 f   * CIL library *:* CIL module *
  0001:00000010       ??__Eallocator_arg@std@@YAXXZ 0000000180001010 f   * CIL library *:* CIL module *
- 0001:00000290       _register_addon            0000000180001290 f   * CIL library *:* CIL module *
- 0001:00000790       load_exe_hook              0000000180001790 f   * CIL library *:* CIL module *
+ 0001:000002a0       _register_addon            00000001800012a0 f   * CIL library *:* CIL module *
+ 0001:000007a0       load_exe_hook              00000001800017a0 f   * CIL library *:* CIL module *
  0001:00000ae0       $$000000                   0000000180001ae0     LIBCMT:amdsecgs.obj
  0001:00000b10       $$000000                   0000000180001b10     LIBCMT:memcpy.obj
  0001:00000c00       MoveSmall                  0000000180001c00     LIBCMT:memcpy.obj
@@ -1568,14 +1565,14 @@
  0001:0000bd74       _CRT_INIT$fin$0            000000018000cd74 f   LIBCMT:dllcrt0.obj
  0001:0000bd9a       __DllMainCRTStartup$filt$0 000000018000cd9a f   LIBCMT:dllcrt0.obj
  0001:0000bde3       doexit$fin$0               000000018000cde3 f   LIBCMT:crt0dat.obj
- 0001:0000be07       _setmbcp$fin$0             000000018000ce07 f   LIBCMT:mbctype.obj
  0001:0000be07       __updatetmbcinfo$fin$0     000000018000ce07 f   LIBCMT:mbctype.obj
- 0001:0000be20       _freefls$fin$1             000000018000ce20 f   LIBCMT:tidtable.obj
+ 0001:0000be07       _setmbcp$fin$0             000000018000ce07 f   LIBCMT:mbctype.obj
  0001:0000be20       _initptd$fin$1             000000018000ce20 f   LIBCMT:tidtable.obj
+ 0001:0000be20       _freefls$fin$1             000000018000ce20 f   LIBCMT:tidtable.obj
  0001:0000be39       _initptd$fin$0             000000018000ce39 f   LIBCMT:tidtable.obj
  0001:0000be39       _freefls$fin$0             000000018000ce39 f   LIBCMT:tidtable.obj
- 0001:0000be52       __updatetlocinfo$fin$0     000000018000ce52 f   LIBCMT:wsetloca.obj
  0001:0000be52       _locterm$fin$0             000000018000ce52 f   LIBCMT:wsetloca.obj
+ 0001:0000be52       __updatetlocinfo$fin$0     000000018000ce52 f   LIBCMT:wsetloca.obj
  0001:0000be6b       _ioinit$fin$0              000000018000ce6b f   LIBCMT:ioinit.obj
  0001:0000be86       __DestructExceptionObject$filt$0 000000018000ce86 f   LIBCMT:frame.obj
  0001:0000be9e       ?fin$0@?0??_Type_info_dtor@type_info@@CAXPEAV1@@Z@4HA 000000018000ce9e f   LIBCMT:typname.obj
@@ -1585,11 +1582,11 @@
  0001:0000bf1e       flsall$fin$0               000000018000cf1e f   LIBCMT:fflush.obj
  0001:0000bf46       flsall$fin$1               000000018000cf46 f   LIBCMT:fflush.obj
  0001:0000bf5f       _fcloseall$fin$0           000000018000cf5f f   LIBCMT:closeall.obj
- 0001:0000bf78       _write$fin$0               000000018000cf78 f   LIBCMT:write.obj
- 0001:0000bf8f       fclose$fin$0               000000018000cf8f f   LIBCMT:fclose.obj
- 0001:0000bfa7       __lock_fhandle$fin$0       000000018000cfa7 f   LIBCMT:osfinfo.obj
- 0001:0000bfc0       _close$fin$0               000000018000cfc0 f   LIBCMT:close.obj
- 0001:0000bfc0       _commit$fin$0              000000018000cfc0 f   LIBCMT:close.obj
+ 0001:0000bf78       _commit$fin$0              000000018000cf78 f   LIBCMT:commit.obj
+ 0001:0000bf78       _close$fin$0               000000018000cf78 f   LIBCMT:commit.obj
+ 0001:0000bf8f       _write$fin$0               000000018000cf8f f   LIBCMT:write.obj
+ 0001:0000bfa6       fclose$fin$0               000000018000cfa6 f   LIBCMT:fclose.obj
+ 0001:0000bfbe       __lock_fhandle$fin$0       000000018000cfbe f   LIBCMT:osfinfo.obj
  0002:00000290       piecewise_construct$initializer$ 000000018000d290     * CIL library *:* CIL module *
  0002:00000298       allocator_arg$initializer$ 000000018000d298     * CIL library *:* CIL module *
  0002:000002b8       pinit                      000000018000d2b8     LIBCMT:onexit.obj
@@ -1612,133 +1609,159 @@
  0002:00006830       nameTable                  0000000180013830     LIBCMT:undname.obj
  0002:00006ab0       rttiTable                  0000000180013ab0     LIBCMT:undname.obj
  0002:00007738       $unwind$?Method@demo@@YAXAEBV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z 0000000180014738     * CIL library *:* CIL module *
- 0002:00007758       $unwind$?init@demo@@YAXV?$Local@VObject@v8@@@v8@@@Z 0000000180014758     * CIL library *:* CIL module *
- 0002:00007760       $unwind$_mtdeletelocks     0000000180014760     * CIL library *:* CIL module *
- 0002:00007760       $unwind$?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV12@AEBV12@_K1@Z 0000000180014760     * CIL library *:* CIL module *
- 0002:00007760       $unwind$_initterm          0000000180014760     * CIL library *:* CIL module *
- 0002:00007760       $unwind$__freetlocinfo     0000000180014760     * CIL library *:* CIL module *
- 0002:00007760       $unwind$?setSBCS@@YAXPEAUthreadmbcinfostruct@@@Z 0000000180014760     * CIL library *:* CIL module *
- 0002:00007760       $unwind$?_Copy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAX_K0@Z 0000000180014760     * CIL library *:* CIL module *
- 0002:00007760       $unwind$_XcptFilter        0000000180014760     * CIL library *:* CIL module *
- 0002:00007774       $unwind$malloc             0000000180014774     * CIL library *:* CIL module *
- 0002:00007774       $unwind$_mtinitlocks       0000000180014774     * CIL library *:* CIL module *
- 0002:00007774       $unwind$_lseeki64_nolock   0000000180014774     * CIL library *:* CIL module *
- 0002:00007774       $unwind$realloc            0000000180014774     * CIL library *:* CIL module *
- 0002:00007774       $unwind$_DllMainCRTStartup 0000000180014774     * CIL library *:* CIL module *
- 0002:00007774       $unwind$_ioterm            0000000180014774     * CIL library *:* CIL module *
- 0002:00007774       $unwind$?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV12@PEBD_K@Z 0000000180014774     * CIL library *:* CIL module *
- 0002:00007774       $unwind$_flush             0000000180014774     * CIL library *:* CIL module *
- 0002:00007784       $unwind$??4exception@std@@QEAAAEAV01@AEBV01@@Z 0000000180014784     * CIL library *:* CIL module *
- 0002:00007784       $unwind$_calloc_impl       0000000180014784     * CIL library *:* CIL module *
- 0002:00007784       $unwind$_dosmaperr         0000000180014784     * CIL library *:* CIL module *
- 0002:00007784       $unwind$__freeCrtMemory    0000000180014784     * CIL library *:* CIL module *
- 0002:00007784       $unwind$_RTC_Terminate     0000000180014784     * CIL library *:* CIL module *
- 0002:00007784       $unwind$_initp_misc_cfltcvt_tab 0000000180014784     * CIL library *:* CIL module *
- 0002:00007784       $unwind$_initterm_e        0000000180014784     * CIL library *:* CIL module *
- 0002:00007784       $unwind$__initstdio        0000000180014784     * CIL library *:* CIL module *
- 0002:00007784       $unwind$_fptostr           0000000180014784     * CIL library *:* CIL module *
- 0002:00007784       $unwind$_getptd_noexit     0000000180014784     * CIL library *:* CIL module *
- 0002:00007784       $unwind$_updatetlocinfoEx_nolock 0000000180014784     * CIL library *:* CIL module *
- 0002:00007784       $unwind$_RTC_Initialize    0000000180014784     * CIL library *:* CIL module *
- 0002:00007784       $unwind$??_Gtype_info@@UEAAPEAXI@Z 0000000180014784     * CIL library *:* CIL module *
- 0002:00007784       $unwind$_fclose_nolock     0000000180014784     * CIL library *:* CIL module *
- 0002:00007784       $unwind$??_Gout_of_range@std@@UEAAPEAXI@Z 0000000180014784     * CIL library *:* CIL module *
- 0002:00007784       $unwind$??_Glength_error@std@@UEAAPEAXI@Z 0000000180014784     * CIL library *:* CIL module *
- 0002:00007784       $unwind$??_Gbad_alloc@std@@UEAAPEAXI@Z 0000000180014784     * CIL library *:* CIL module *
- 0002:00007784       $unwind$??_Glogic_error@std@@UEAAPEAXI@Z 0000000180014784     * CIL library *:* CIL module *
- 0002:00007784       $unwind$_close_nolock      0000000180014784     * CIL library *:* CIL module *
- 0002:00007784       $unwind$??_Gexception@std@@UEAAPEAXI@Z 0000000180014784     * CIL library *:* CIL module *
- 0002:00007784       $unwind$?erase@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV12@_K0@Z 0000000180014784     * CIL library *:* CIL module *
- 0002:00007784       $unwind$_lock              0000000180014784     * CIL library *:* CIL module *
- 0002:00007790       $unwind$??$NODE_SET_METHOD@V?$Local@VObject@v8@@@v8@@@node@@YAXAEBV?$Local@VObject@v8@@@v8@@PEBDP6AXAEBV?$FunctionCallbackInfo@VValue@v8@@@2@@Z@Z 0000000180014790     * CIL library *:* CIL module *
- 0002:0000779c       $unwind$_callnewh          000000018001479c     * CIL library *:* CIL module *
- 0002:0000779c       $unwind$wcsncpy_s          000000018001479c     * CIL library *:* CIL module *
- 0002:0000779c       $unwind$_freebuf           000000018001479c     * CIL library *:* CIL module *
- 0002:0000779c       $unwind$_lock_file2        000000018001479c     * CIL library *:* CIL module *
- 0002:0000779c       $unwind$?_Tidy@exception@std@@AEAAXXZ 000000018001479c     * CIL library *:* CIL module *
- 0002:0000779c       $unwind$_init_pointers     000000018001479c     * CIL library *:* CIL module *
- 0002:0000779c       $unwind$wcscpy_s           000000018001479c     * CIL library *:* CIL module *
- 0002:0000779c       $unwind$_getptd            000000018001479c     * CIL library *:* CIL module *
- 0002:0000779c       $unwind$load_exe_hook      000000018001479c     * CIL library *:* CIL module *
- 0002:0000779c       $unwind$wcscat_s           000000018001479c     * CIL library *:* CIL module *
- 0002:0000779c       $unwind$_mtinit            000000018001479c     * CIL library *:* CIL module *
- 0002:0000779c       $unwind$_freeptd           000000018001479c     * CIL library *:* CIL module *
- 0002:0000779c       $unwind$_cinit             000000018001479c     * CIL library *:* CIL module *
- 0002:0000779c       $unwind$__crtLoadWinApiPointers 000000018001479c     * CIL library *:* CIL module *
- 0002:0000779c       $unwind$strcpy_s           000000018001479c     * CIL library *:* CIL module *
- 0002:0000779c       $unwind$__crtCorExitProcess 000000018001479c     * CIL library *:* CIL module *
- 0002:0000779c       $unwind$__crtExitProcess   000000018001479c     * CIL library *:* CIL module *
- 0002:0000779c       $unwind$??0exception@std@@QEAA@AEBV01@@Z 000000018001479c     * CIL library *:* CIL module *
- 0002:0000779c       $unwind$__onexitinit       000000018001479c     * CIL library *:* CIL module *
- 0002:0000779c       $unwind$__crtTerminateProcess 000000018001479c     * CIL library *:* CIL module *
- 0002:0000779c       $unwind$??0logic_error@std@@QEAA@AEBV01@@Z 000000018001479c     * CIL library *:* CIL module *
- 0002:0000779c       $unwind$??0exception@std@@QEAA@AEBQEBD@Z 000000018001479c     * CIL library *:* CIL module *
- 0002:0000779c       $unwind$__crtUnhandledException 000000018001479c     * CIL library *:* CIL module *
- 0002:0000779c       $unwind$_fflush_nolock     000000018001479c     * CIL library *:* CIL module *
- 0002:0000779c       $unwind$__GSHandlerCheckCommon 000000018001479c     * CIL library *:* CIL module *
- 0002:0000779c       $unwind$_amsg_exit         000000018001479c     * CIL library *:* CIL module *
- 0002:0000779c       $unwind$??0_LocaleUpdate@@QEAA@PEAUlocaleinfo_struct@@@Z 000000018001479c     * CIL library *:* CIL module *
- 0002:0000779c       $unwind$_lock_file         000000018001479c     * CIL library *:* CIL module *
- 0002:0000779c       $unwind$__crtIsPackagedApp 000000018001479c     * CIL library *:* CIL module *
- 0002:0000779c       $unwind$??0length_error@std@@QEAA@AEBV01@@Z 000000018001479c     * CIL library *:* CIL module *
- 0002:0000779c       $unwind$??0out_of_range@std@@QEAA@AEBV01@@Z 000000018001479c     * CIL library *:* CIL module *
- 0002:0000779c       $unwind$__raise_securityfailure 000000018001479c     * CIL library *:* CIL module *
- 0002:0000779c       $unwind$??0bad_alloc@std@@QEAA@AEBV01@@Z 000000018001479c     * CIL library *:* CIL module *
- 0002:000077a4       xdata                      00000001800147a4     node:node.exe
- 0002:000077b0       $xdatasym                  00000001800147b0     LIBCMT:amdsecgs.obj
- 0002:000077b8       $xdatasym                  00000001800147b8     LIBCMT:memcpy.obj
- 0002:000077bc       $unwind$_onexit            00000001800147bc     LIBCMT:onexit.obj
- 0002:000077ec       $unwind$_stricmp_l         00000001800147ec     LIBCMT:stricmp.obj
- 0002:000077ec       $unwind$?x_ismbbtype_l@@YAHPEAUlocaleinfo_struct@@IHH@Z 00000001800147ec     LIBCMT:stricmp.obj
- 0002:000077fc       $unwind$_CRT_INIT          00000001800147fc     LIBCMT:dllcrt0.obj
- 0002:0000781c       $unwind$__DllMainCRTStartup 000000018001481c     LIBCMT:dllcrt0.obj
- 0002:00007848       $xdatasym                  0000000180014848     LIBCMT:strlen.obj
- 0002:0000784c       $unwind$_CxxThrowException 000000018001484c     LIBCMT:throw.obj
- 0002:0000785c       $unwind$?_Copy_str@exception@std@@AEAAXPEBD@Z 000000018001485c     LIBCMT:stdexcpt.obj
- 0002:0000786c       $unwind$__isa_available_init 000000018001486c     LIBCMT:cpu_disp.obj
- 0002:00007880       $unwind$doexit             0000000180014880     LIBCMT:crt0dat.obj
- 0002:000078b0       $unwind$GetTableIndexFromLocaleName 00000001800148b0     LIBCMT:crtheap.obj
- 0002:000078b0       $unwind$_realloc_crt       00000001800148b0     LIBCMT:crtheap.obj
- 0002:000078b0       $unwind$_malloc_crt        00000001800148b0     LIBCMT:crtheap.obj
- 0002:000078b0       $unwind$_calloc_crt        00000001800148b0     LIBCMT:crtheap.obj
- 0002:000078c8       $unwind$__C_specific_handler 00000001800148c8     LIBCMT:chandler.obj
- 0002:000078e4       $unwind$_cfltcvt_l         00000001800148e4     LIBCMT:invarg.obj
- 0002:000078e4       $unwind$_invalid_parameter_noinfo 00000001800148e4     LIBCMT:invarg.obj
- 0002:000078ec       $unwind$_call_reportfault  00000001800148ec     LIBCMT:invarg.obj
- 0002:0000790c       $unwind$_setenvp           000000018001490c     LIBCMT:invarg.obj
- 0002:0000790c       $unwind$_invalid_parameter 000000018001490c     LIBCMT:invarg.obj
- 0002:00007920       $unwind$__updatetlocinfo   0000000180014920     LIBCMT:localref.obj
- 0002:00007940       $unwind$__updatetmbcinfo   0000000180014940     LIBCMT:mbctype.obj
- 0002:00007964       $unwind$_setmbcp           0000000180014964     LIBCMT:mbctype.obj
- 0002:00007994       $unwind$_setmbcp_nolock    0000000180014994     LIBCMT:mbctype.obj
- 0002:000079b4       $unwind$isdigit            00000001800149b4     LIBCMT:mbctype.obj
- 0002:000079b4       $unwind$?getSystemCP@@YAHH@Z 00000001800149b4     LIBCMT:mbctype.obj
- 0002:000079b4       $unwind$??2@YAPEAX_K@Z     00000001800149b4     LIBCMT:mbctype.obj
- 0002:000079b4       $unwind$isleadbyte         00000001800149b4     LIBCMT:mbctype.obj
- 0002:000079b4       $unwind$_isleadbyte_l      00000001800149b4     LIBCMT:mbctype.obj
- 0002:000079b4       $unwind$_forcdecpt_l       00000001800149b4     LIBCMT:mbctype.obj
- 0002:000079b4       $unwind$_cropzeros_l       00000001800149b4     LIBCMT:mbctype.obj
- 0002:000079bc       $unwind$?setSBUpLow@@YAXPEAUthreadmbcinfostruct@@@Z 00000001800149bc     LIBCMT:mbctype.obj
- 0002:000079d8       $unwind$_tolower_l         00000001800149d8     LIBCMT:tolower.obj
- 0002:000079e8       $unwind$_freefls           00000001800149e8     LIBCMT:tidtable.obj
- 0002:00007a1c       $unwind$_initptd           0000000180014a1c     LIBCMT:tidtable.obj
+ 0002:00007754       $unwind$?init@demo@@YAXV?$Local@VObject@v8@@@v8@@@Z 0000000180014754     * CIL library *:* CIL module *
+ 0002:0000775c       $unwind$?_Copy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAX_K0@Z 000000018001475c     * CIL library *:* CIL module *
+ 0002:0000775c       $unwind$_initterm          000000018001475c     * CIL library *:* CIL module *
+ 0002:0000775c       $unwind$?setSBCS@@YAXPEAUthreadmbcinfostruct@@@Z 000000018001475c     * CIL library *:* CIL module *
+ 0002:0000775c       $unwind$?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV12@AEBV12@_K1@Z 000000018001475c     * CIL library *:* CIL module *
+ 0002:0000775c       $unwind$_mtdeletelocks     000000018001475c     * CIL library *:* CIL module *
+ 0002:0000775c       $unwind$__freetlocinfo     000000018001475c     * CIL library *:* CIL module *
+ 0002:0000775c       $unwind$_XcptFilter        000000018001475c     * CIL library *:* CIL module *
+ 0002:00007770       $unwind$_ioterm            0000000180014770     * CIL library *:* CIL module *
+ 0002:00007770       $unwind$_DllMainCRTStartup 0000000180014770     * CIL library *:* CIL module *
+ 0002:00007770       $unwind$_mtinitlocks       0000000180014770     * CIL library *:* CIL module *
+ 0002:00007770       $unwind$_lseeki64_nolock   0000000180014770     * CIL library *:* CIL module *
+ 0002:00007770       $unwind$?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV12@PEBD_K@Z 0000000180014770     * CIL library *:* CIL module *
+ 0002:00007770       $unwind$_flush             0000000180014770     * CIL library *:* CIL module *
+ 0002:00007770       $unwind$malloc             0000000180014770     * CIL library *:* CIL module *
+ 0002:00007770       $unwind$realloc            0000000180014770     * CIL library *:* CIL module *
+ 0002:00007780       $unwind$??_Gtype_info@@UEAAPEAXI@Z 0000000180014780     * CIL library *:* CIL module *
+ 0002:00007780       $unwind$_RTC_Initialize    0000000180014780     * CIL library *:* CIL module *
+ 0002:00007780       $unwind$_calloc_impl       0000000180014780     * CIL library *:* CIL module *
+ 0002:00007780       $unwind$_getptd_noexit     0000000180014780     * CIL library *:* CIL module *
+ 0002:00007780       $unwind$_dosmaperr         0000000180014780     * CIL library *:* CIL module *
+ 0002:00007780       $unwind$__initstdio        0000000180014780     * CIL library *:* CIL module *
+ 0002:00007780       $unwind$_fclose_nolock     0000000180014780     * CIL library *:* CIL module *
+ 0002:00007780       $unwind$_initterm_e        0000000180014780     * CIL library *:* CIL module *
+ 0002:00007780       $unwind$_fptostr           0000000180014780     * CIL library *:* CIL module *
+ 0002:00007780       $unwind$??_Glogic_error@std@@UEAAPEAXI@Z 0000000180014780     * CIL library *:* CIL module *
+ 0002:00007780       $unwind$??_Gout_of_range@std@@UEAAPEAXI@Z 0000000180014780     * CIL library *:* CIL module *
+ 0002:00007780       $unwind$??_Gexception@std@@UEAAPEAXI@Z 0000000180014780     * CIL library *:* CIL module *
+ 0002:00007780       $unwind$??_Gbad_alloc@std@@UEAAPEAXI@Z 0000000180014780     * CIL library *:* CIL module *
+ 0002:00007780       $unwind$__freeCrtMemory    0000000180014780     * CIL library *:* CIL module *
+ 0002:00007780       $unwind$?erase@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV12@_K0@Z 0000000180014780     * CIL library *:* CIL module *
+ 0002:00007780       $unwind$??_Glength_error@std@@UEAAPEAXI@Z 0000000180014780     * CIL library *:* CIL module *
+ 0002:00007780       $unwind$_updatetlocinfoEx_nolock 0000000180014780     * CIL library *:* CIL module *
+ 0002:00007780       $unwind$_initp_misc_cfltcvt_tab 0000000180014780     * CIL library *:* CIL module *
+ 0002:00007780       $unwind$_close_nolock      0000000180014780     * CIL library *:* CIL module *
+ 0002:00007780       $unwind$_RTC_Terminate     0000000180014780     * CIL library *:* CIL module *
+ 0002:00007780       $unwind$_lock              0000000180014780     * CIL library *:* CIL module *
+ 0002:00007780       $unwind$??4exception@std@@QEAAAEAV01@AEBV01@@Z 0000000180014780     * CIL library *:* CIL module *
+ 0002:0000778c       $unwind$??$NODE_SET_METHOD@V?$Local@VObject@v8@@@v8@@@node@@YAXAEBV?$Local@VObject@v8@@@v8@@PEBDP6AXAEBV?$FunctionCallbackInfo@VValue@v8@@@2@@Z@Z 000000018001478c     * CIL library *:* CIL module *
+ 0002:00007798       $unwind$??0exception@std@@QEAA@AEBQEBD@Z 0000000180014798     * CIL library *:* CIL module *
+ 0002:00007798       $unwind$??0bad_alloc@std@@QEAA@AEBV01@@Z 0000000180014798     * CIL library *:* CIL module *
+ 0002:00007798       $unwind$??0exception@std@@QEAA@AEBV01@@Z 0000000180014798     * CIL library *:* CIL module *
+ 0002:00007798       $unwind$_lock_file         0000000180014798     * CIL library *:* CIL module *
+ 0002:00007798       $unwind$_callnewh          0000000180014798     * CIL library *:* CIL module *
+ 0002:00007798       $unwind$__raise_securityfailure 0000000180014798     * CIL library *:* CIL module *
+ 0002:00007798       $unwind$strcpy_s           0000000180014798     * CIL library *:* CIL module *
+ 0002:00007798       $unwind$_lock_file2        0000000180014798     * CIL library *:* CIL module *
+ 0002:00007798       $unwind$_getptd            0000000180014798     * CIL library *:* CIL module *
+ 0002:00007798       $unwind$_freebuf           0000000180014798     * CIL library *:* CIL module *
+ 0002:00007798       $unwind$__onexitinit       0000000180014798     * CIL library *:* CIL module *
+ 0002:00007798       $unwind$wcsncpy_s          0000000180014798     * CIL library *:* CIL module *
+ 0002:00007798       $unwind$??0_LocaleUpdate@@QEAA@PEAUlocaleinfo_struct@@@Z 0000000180014798     * CIL library *:* CIL module *
+ 0002:00007798       $unwind$_freeptd           0000000180014798     * CIL library *:* CIL module *
+ 0002:00007798       $unwind$wcscpy_s           0000000180014798     * CIL library *:* CIL module *
+ 0002:00007798       $unwind$wcscat_s           0000000180014798     * CIL library *:* CIL module *
+ 0002:00007798       $unwind$__crtIsPackagedApp 0000000180014798     * CIL library *:* CIL module *
+ 0002:00007798       $unwind$??0logic_error@std@@QEAA@AEBV01@@Z 0000000180014798     * CIL library *:* CIL module *
+ 0002:00007798       $unwind$__crtLoadWinApiPointers 0000000180014798     * CIL library *:* CIL module *
+ 0002:00007798       $unwind$_fflush_nolock     0000000180014798     * CIL library *:* CIL module *
+ 0002:00007798       $unwind$?_Tidy@exception@std@@AEAAXXZ 0000000180014798     * CIL library *:* CIL module *
+ 0002:00007798       $unwind$_init_pointers     0000000180014798     * CIL library *:* CIL module *
+ 0002:00007798       $unwind$??0length_error@std@@QEAA@AEBV01@@Z 0000000180014798     * CIL library *:* CIL module *
+ 0002:00007798       $unwind$load_exe_hook      0000000180014798     * CIL library *:* CIL module *
+ 0002:00007798       $unwind$__GSHandlerCheckCommon 0000000180014798     * CIL library *:* CIL module *
+ 0002:00007798       $unwind$_mtinit            0000000180014798     * CIL library *:* CIL module *
+ 0002:00007798       $unwind$_cinit             0000000180014798     * CIL library *:* CIL module *
+ 0002:00007798       $unwind$_amsg_exit         0000000180014798     * CIL library *:* CIL module *
+ 0002:00007798       $unwind$__crtCorExitProcess 0000000180014798     * CIL library *:* CIL module *
+ 0002:00007798       $unwind$??0out_of_range@std@@QEAA@AEBV01@@Z 0000000180014798     * CIL library *:* CIL module *
+ 0002:00007798       $unwind$__crtTerminateProcess 0000000180014798     * CIL library *:* CIL module *
+ 0002:00007798       $unwind$__crtExitProcess   0000000180014798     * CIL library *:* CIL module *
+ 0002:00007798       $unwind$__crtUnhandledException 0000000180014798     * CIL library *:* CIL module *
+ 0002:000077a0       xdata                      00000001800147a0     node:node.exe
+ 0002:000077a8       $xdatasym                  00000001800147a8     LIBCMT:amdsecgs.obj
+ 0002:000077b0       $xdatasym                  00000001800147b0     LIBCMT:memcpy.obj
+ 0002:000077b4       $unwind$_onexit            00000001800147b4     LIBCMT:onexit.obj
+ 0002:000077e4       $unwind$_stricmp_l         00000001800147e4     LIBCMT:stricmp.obj
+ 0002:000077e4       $unwind$?x_ismbbtype_l@@YAHPEAUlocaleinfo_struct@@IHH@Z 00000001800147e4     LIBCMT:stricmp.obj
+ 0002:000077f4       $unwind$_CRT_INIT          00000001800147f4     LIBCMT:dllcrt0.obj
+ 0002:00007814       $unwind$__DllMainCRTStartup 0000000180014814     LIBCMT:dllcrt0.obj
+ 0002:00007840       $xdatasym                  0000000180014840     LIBCMT:strlen.obj
+ 0002:00007844       $unwind$_CxxThrowException 0000000180014844     LIBCMT:throw.obj
+ 0002:00007854       $unwind$?_Copy_str@exception@std@@AEAAXPEBD@Z 0000000180014854     LIBCMT:stdexcpt.obj
+ 0002:00007864       $unwind$__isa_available_init 0000000180014864     LIBCMT:cpu_disp.obj
+ 0002:00007878       $unwind$doexit             0000000180014878     LIBCMT:crt0dat.obj
+ 0002:000078a8       $unwind$_realloc_crt       00000001800148a8     LIBCMT:crtheap.obj
+ 0002:000078a8       $unwind$GetTableIndexFromLocaleName 00000001800148a8     LIBCMT:crtheap.obj
+ 0002:000078a8       $unwind$_malloc_crt        00000001800148a8     LIBCMT:crtheap.obj
+ 0002:000078a8       $unwind$_calloc_crt        00000001800148a8     LIBCMT:crtheap.obj
+ 0002:000078c0       $unwind$__C_specific_handler 00000001800148c0     LIBCMT:chandler.obj
+ 0002:000078dc       $unwind$_invalid_parameter_noinfo 00000001800148dc     LIBCMT:invarg.obj
+ 0002:000078dc       $unwind$_cfltcvt_l         00000001800148dc     LIBCMT:invarg.obj
+ 0002:000078e4       $unwind$_call_reportfault  00000001800148e4     LIBCMT:invarg.obj
+ 0002:00007904       $unwind$_setenvp           0000000180014904     LIBCMT:invarg.obj
+ 0002:00007904       $unwind$_invalid_parameter 0000000180014904     LIBCMT:invarg.obj
+ 0002:00007918       $unwind$__updatetlocinfo   0000000180014918     LIBCMT:localref.obj
+ 0002:00007938       $unwind$__updatetmbcinfo   0000000180014938     LIBCMT:mbctype.obj
+ 0002:0000795c       $unwind$_setmbcp           000000018001495c     LIBCMT:mbctype.obj
+ 0002:0000798c       $unwind$_setmbcp_nolock    000000018001498c     LIBCMT:mbctype.obj
+ 0002:000079ac       $unwind$_isleadbyte_l      00000001800149ac     LIBCMT:mbctype.obj
+ 0002:000079ac       $unwind$isleadbyte         00000001800149ac     LIBCMT:mbctype.obj
+ 0002:000079ac       $unwind$isdigit            00000001800149ac     LIBCMT:mbctype.obj
+ 0002:000079ac       $unwind$_cropzeros_l       00000001800149ac     LIBCMT:mbctype.obj
+ 0002:000079ac       $unwind$??2@YAPEAX_K@Z     00000001800149ac     LIBCMT:mbctype.obj
+ 0002:000079ac       $unwind$?getSystemCP@@YAHH@Z 00000001800149ac     LIBCMT:mbctype.obj
+ 0002:000079ac       $unwind$_forcdecpt_l       00000001800149ac     LIBCMT:mbctype.obj
+ 0002:000079b4       $unwind$?setSBUpLow@@YAXPEAUthreadmbcinfostruct@@@Z 00000001800149b4     LIBCMT:mbctype.obj
+ 0002:000079d0       $unwind$_tolower_l         00000001800149d0     LIBCMT:tolower.obj
+ 0002:000079e0       $unwind$_freefls           00000001800149e0     LIBCMT:tidtable.obj
+ 0002:00007a14       $unwind$_initptd           0000000180014a14     LIBCMT:tidtable.obj
+ 0002:00007a48       $unwind$_onexit$fin$0      0000000180014a48     LIBCMT:tidtable.obj
+ 0002:00007a48       $unwind$fclose$fin$0       0000000180014a48     LIBCMT:tidtable.obj
+ 0002:00007a48       $unwind$__updatetlocinfo$fin$0 0000000180014a48     LIBCMT:tidtable.obj
+ 0002:00007a48       $unwind$_freefls$fin$0     0000000180014a48     LIBCMT:tidtable.obj
+ 0002:00007a48       $unwind$_initptd$fin$1     0000000180014a48     LIBCMT:tidtable.obj
+ 0002:00007a48       $unwind$_fcloseall$fin$0   0000000180014a48     LIBCMT:tidtable.obj
+ 0002:00007a48       $unwind$_freefls$fin$1     0000000180014a48     LIBCMT:tidtable.obj
+ 0002:00007a48       $unwind$_IsNonwritableInCurrentImage$filt$0 0000000180014a48     LIBCMT:tidtable.obj
+ 0002:00007a48       $unwind$_initptd$fin$0     0000000180014a48     LIBCMT:tidtable.obj
+ 0002:00007a48       $unwind$_setmbcp$fin$0     0000000180014a48     LIBCMT:tidtable.obj
+ 0002:00007a48       $unwind$doexit$fin$0       0000000180014a48     LIBCMT:tidtable.obj
+ 0002:00007a48       $unwind$__updatetmbcinfo$fin$0 0000000180014a48     LIBCMT:tidtable.obj
+ 0002:00007a48       $unwind$__DestructExceptionObject$filt$0 0000000180014a48     LIBCMT:tidtable.obj
+ 0002:00007a48       $unwind$_write$fin$0       0000000180014a48     LIBCMT:tidtable.obj
+ 0002:00007a48       $unwind$?fin$0@?0??_Type_info_dtor@type_info@@CAXPEAV1@@Z@4HA 0000000180014a48     LIBCMT:tidtable.obj
+ 0002:00007a48       $unwind$_close$fin$0       0000000180014a48     LIBCMT:tidtable.obj
+ 0002:00007a48       $unwind$_CRT_INIT$fin$0    0000000180014a48     LIBCMT:tidtable.obj
+ 0002:00007a48       $unwind$raise$fin$0        0000000180014a48     LIBCMT:tidtable.obj
+ 0002:00007a48       $unwind$flsall$fin$0       0000000180014a48     LIBCMT:tidtable.obj
+ 0002:00007a48       $unwind$_commit$fin$0      0000000180014a48     LIBCMT:tidtable.obj
+ 0002:00007a48       $unwind$flsall$fin$1       0000000180014a48     LIBCMT:tidtable.obj
+ 0002:00007a48       $unwind$_ioinit$fin$0      0000000180014a48     LIBCMT:tidtable.obj
+ 0002:00007a48       $unwind$__DllMainCRTStartup$filt$0 0000000180014a48     LIBCMT:tidtable.obj
+ 0002:00007a48       $unwind$_mtinitlocknum$fin$0 0000000180014a48     LIBCMT:tidtable.obj
+ 0002:00007a48       $unwind$_locterm$fin$0     0000000180014a48     LIBCMT:tidtable.obj
+ 0002:00007a48       $unwind$__lock_fhandle$fin$0 0000000180014a48     LIBCMT:tidtable.obj
  0002:00007a50       $unwind$_locterm           0000000180014a50     LIBCMT:wsetloca.obj
  0002:00007a70       $unwind$_ioinit            0000000180014a70     LIBCMT:ioinit.obj
  0002:00007ab8       $unwind$_setargv           0000000180014ab8     LIBCMT:stdargv.obj
  0002:00007ac8       $unwind$parse_cmdline      0000000180014ac8     LIBCMT:stdargv.obj
  0002:00007ae4       $unwind$__security_init_cookie 0000000180014ae4     LIBCMT:gs_support.obj
- 0002:00007af0       $unwind$__crtGetEnvironmentStringsA 0000000180014af0     LIBCMT:a_env.obj
- 0002:00007af0       $unwind$_cftof2_l          0000000180014af0     LIBCMT:a_env.obj
- 0002:00007b08       $unwind$__crtCaptureCurrentContext 0000000180014b08     LIBCMT:winapisupp.obj
- 0002:00007b14       $unwind$__crtCapturePreviousContext 0000000180014b14     LIBCMT:winapisupp.obj
- 0002:00007b20       $unwind$__DestructExceptionObject 0000000180014b20     LIBCMT:frame.obj
- 0002:00007b40       $unwind$?terminate@@YAXXZ  0000000180014b40     LIBCMT:hooks.obj
- 0002:00007b60       $xdatasym                  0000000180014b60     LIBCMT:strcmp.obj
- 0002:00007b64       $unwind$?_Type_info_dtor@type_info@@CAXPEAV1@@Z 0000000180014b64     LIBCMT:typname.obj
- 0002:00007b84       $unwind$_fassign_l         0000000180014b84     LIBCMT:cvt.obj
- 0002:00007b8c       $unwind$_cftoe2_l          0000000180014b8c     LIBCMT:cvt.obj
- 0002:00007ba8       $unwind$_cftoe_l           0000000180014ba8     LIBCMT:cvt.obj
- 0002:00007bc0       $unwind$_cftoa_l           0000000180014bc0     LIBCMT:cvt.obj
+ 0002:00007af0       $unwind$__crtCaptureCurrentContext 0000000180014af0     LIBCMT:winapisupp.obj
+ 0002:00007afc       $unwind$__crtCapturePreviousContext 0000000180014afc     LIBCMT:winapisupp.obj
+ 0002:00007b08       $unwind$__DestructExceptionObject 0000000180014b08     LIBCMT:frame.obj
+ 0002:00007b28       $unwind$?terminate@@YAXXZ  0000000180014b28     LIBCMT:hooks.obj
+ 0002:00007b48       $xdatasym                  0000000180014b48     LIBCMT:strcmp.obj
+ 0002:00007b4c       $unwind$?_Type_info_dtor@type_info@@CAXPEAV1@@Z 0000000180014b4c     LIBCMT:typname.obj
+ 0002:00007b6c       $unwind$_fassign_l         0000000180014b6c     LIBCMT:cvt.obj
+ 0002:00007b74       $unwind$_cftoe2_l          0000000180014b74     LIBCMT:cvt.obj
+ 0002:00007b90       $unwind$_cftoe_l           0000000180014b90     LIBCMT:cvt.obj
+ 0002:00007ba8       $unwind$_cftoa_l           0000000180014ba8     LIBCMT:cvt.obj
+ 0002:00007bc4       $unwind$_cftof2_l          0000000180014bc4     LIBCMT:cvt.obj
+ 0002:00007bc4       $unwind$__crtGetEnvironmentStringsA 0000000180014bc4     LIBCMT:cvt.obj
  0002:00007bdc       $unwind$_cftof_l           0000000180014bdc     LIBCMT:cvt.obj
  0002:00007bf4       $unwind$_cftog_l           0000000180014bf4     LIBCMT:cvt.obj
  0002:00007c0c       $unwind$_mtinitlocknum     0000000180014c0c     LIBCMT:mlock.obj
@@ -1759,27 +1782,27 @@
  0002:00007d3c       $unwind$?__crtGetStringTypeA_stat@@YAHPEAUlocaleinfo_struct@@KPEBDHPEAGHH@Z 0000000180014d3c     LIBCMT:a_str.obj
  0002:00007d64       $unwind$_isctype_l         0000000180014d64     LIBCMT:isctype.obj
  0002:00007d78       $xdatasym                  0000000180014d78     LIBCMT:memcmp.obj
- 0002:00007d7c       $unwind$abort              0000000180014d7c     LIBCMT:_file.obj
- 0002:00007d7c       $unwind$__crtInitializeCriticalSectionEx 0000000180014d7c     LIBCMT:_file.obj
- 0002:00007d7c       $unwind$__doserrno         0000000180014d7c     LIBCMT:_file.obj
- 0002:00007d7c       $unwind$__termconout       0000000180014d7c     LIBCMT:_file.obj
- 0002:00007d7c       $unwind$__endstdio         0000000180014d7c     LIBCMT:_file.obj
+ 0002:00007d7c       $unwind$_fileno            0000000180014d7c     LIBCMT:_file.obj
  0002:00007d7c       $unwind$_FF_MSGBANNER      0000000180014d7c     LIBCMT:_file.obj
- 0002:00007d7c       $unwind$_get_osfhandle     0000000180014d7c     LIBCMT:_file.obj
- 0002:00007d7c       $unwind$__crtDownlevelLocaleNameToLCID 0000000180014d7c     LIBCMT:_file.obj
  0002:00007d7c       $unwind$_invoke_watson     0000000180014d7c     LIBCMT:_file.obj
  0002:00007d7c       $unwind$atexit             0000000180014d7c     LIBCMT:_file.obj
- 0002:00007d7c       $unwind$__initmbctable     0000000180014d7c     LIBCMT:_file.obj
- 0002:00007d7c       $unwind$__GSHandlerCheck   0000000180014d7c     LIBCMT:_file.obj
- 0002:00007d7c       $unwind$_stricmp           0000000180014d7c     LIBCMT:_file.obj
  0002:00007d7c       $unwind$_msize             0000000180014d7c     LIBCMT:_file.obj
- 0002:00007d7c       $unwind$_heap_init         0000000180014d7c     LIBCMT:_file.obj
- 0002:00007d7c       $unwind$_errno             0000000180014d7c     LIBCMT:_file.obj
- 0002:00007d7c       $unwind$_mtterm            0000000180014d7c     LIBCMT:_file.obj
- 0002:00007d7c       $unwind$_isatty            0000000180014d7c     LIBCMT:_file.obj
- 0002:00007d7c       $unwind$_fileno            0000000180014d7c     LIBCMT:_file.obj
- 0002:00007d7c       $unwind$_initp_eh_hooks    0000000180014d7c     LIBCMT:_file.obj
+ 0002:00007d7c       $unwind$__crtDownlevelLocaleNameToLCID 0000000180014d7c     LIBCMT:_file.obj
+ 0002:00007d7c       $unwind$_stricmp           0000000180014d7c     LIBCMT:_file.obj
  0002:00007d7c       $unwind$_set_error_mode    0000000180014d7c     LIBCMT:_file.obj
+ 0002:00007d7c       $unwind$_heap_init         0000000180014d7c     LIBCMT:_file.obj
+ 0002:00007d7c       $unwind$_initp_eh_hooks    0000000180014d7c     LIBCMT:_file.obj
+ 0002:00007d7c       $unwind$__endstdio         0000000180014d7c     LIBCMT:_file.obj
+ 0002:00007d7c       $unwind$abort              0000000180014d7c     LIBCMT:_file.obj
+ 0002:00007d7c       $unwind$_isatty            0000000180014d7c     LIBCMT:_file.obj
+ 0002:00007d7c       $unwind$__initmbctable     0000000180014d7c     LIBCMT:_file.obj
+ 0002:00007d7c       $unwind$__termconout       0000000180014d7c     LIBCMT:_file.obj
+ 0002:00007d7c       $unwind$_errno             0000000180014d7c     LIBCMT:_file.obj
+ 0002:00007d7c       $unwind$__GSHandlerCheck   0000000180014d7c     LIBCMT:_file.obj
+ 0002:00007d7c       $unwind$__crtInitializeCriticalSectionEx 0000000180014d7c     LIBCMT:_file.obj
+ 0002:00007d7c       $unwind$__doserrno         0000000180014d7c     LIBCMT:_file.obj
+ 0002:00007d7c       $unwind$_mtterm            0000000180014d7c     LIBCMT:_file.obj
+ 0002:00007d7c       $unwind$_get_osfhandle     0000000180014d7c     LIBCMT:_file.obj
  0002:00007d88       $xdatasym                  0000000180014d88     LIBCMT:handlers.obj
  0002:00007d90       $unwind$strrchr            0000000180014d90     LIBCMT:strrchr.obj
  0002:00007d98       $unwind$_atodbl_l          0000000180014d98     LIBCMT:atodbl.obj
@@ -1796,55 +1819,29 @@
  0002:00007eb8       $unwind$$I10_OUTPUT        0000000180014eb8     LIBCMT:x10fout.obj
  0002:00007edc       $unwind$_commit            0000000180014edc     LIBCMT:commit.obj
  0002:00007f04       $unwind$_write             0000000180014f04     LIBCMT:write.obj
- 0002:00007f30       $unwind$__updatetlocinfo$fin$0 0000000180014f30     LIBCMT:write.obj
- 0002:00007f30       $unwind$_IsNonwritableInCurrentImage$filt$0 0000000180014f30     LIBCMT:write.obj
- 0002:00007f30       $unwind$_freefls$fin$0     0000000180014f30     LIBCMT:write.obj
- 0002:00007f30       $unwind$_mtinitlocknum$fin$0 0000000180014f30     LIBCMT:write.obj
- 0002:00007f30       $unwind$_onexit$fin$0      0000000180014f30     LIBCMT:write.obj
- 0002:00007f30       $unwind$raise$fin$0        0000000180014f30     LIBCMT:write.obj
- 0002:00007f30       $unwind$_initptd$fin$0     0000000180014f30     LIBCMT:write.obj
- 0002:00007f30       $unwind$_close$fin$0       0000000180014f30     LIBCMT:write.obj
- 0002:00007f30       $unwind$_freefls$fin$1     0000000180014f30     LIBCMT:write.obj
- 0002:00007f30       $unwind$_locterm$fin$0     0000000180014f30     LIBCMT:write.obj
- 0002:00007f30       $unwind$?fin$0@?0??_Type_info_dtor@type_info@@CAXPEAV1@@Z@4HA 0000000180014f30     LIBCMT:write.obj
- 0002:00007f30       $unwind$fclose$fin$0       0000000180014f30     LIBCMT:write.obj
- 0002:00007f30       $unwind$_commit$fin$0      0000000180014f30     LIBCMT:write.obj
- 0002:00007f30       $unwind$__DestructExceptionObject$filt$0 0000000180014f30     LIBCMT:write.obj
- 0002:00007f30       $unwind$_ioinit$fin$0      0000000180014f30     LIBCMT:write.obj
- 0002:00007f30       $unwind$__updatetmbcinfo$fin$0 0000000180014f30     LIBCMT:write.obj
- 0002:00007f30       $unwind$_write$fin$0       0000000180014f30     LIBCMT:write.obj
- 0002:00007f30       $unwind$__lock_fhandle$fin$0 0000000180014f30     LIBCMT:write.obj
- 0002:00007f30       $unwind$_CRT_INIT$fin$0    0000000180014f30     LIBCMT:write.obj
- 0002:00007f30       $unwind$doexit$fin$0       0000000180014f30     LIBCMT:write.obj
- 0002:00007f30       $unwind$_initptd$fin$1     0000000180014f30     LIBCMT:write.obj
- 0002:00007f30       $unwind$_fcloseall$fin$0   0000000180014f30     LIBCMT:write.obj
- 0002:00007f30       $unwind$__DllMainCRTStartup$filt$0 0000000180014f30     LIBCMT:write.obj
- 0002:00007f30       $unwind$flsall$fin$1       0000000180014f30     LIBCMT:write.obj
- 0002:00007f30       $unwind$flsall$fin$0       0000000180014f30     LIBCMT:write.obj
- 0002:00007f30       $unwind$_setmbcp$fin$0     0000000180014f30     LIBCMT:write.obj
- 0002:00007f38       $unwind$_write_nolock      0000000180014f38     LIBCMT:write.obj
- 0002:00007f5c       $unwind$fclose             0000000180014f5c     LIBCMT:fclose.obj
- 0002:00007f80       $unwind$__mtold12          0000000180014f80     LIBCMT:mantold.obj
- 0002:00007f98       $unwind$_free_osfhnd       0000000180014f98     LIBCMT:osfinfo.obj
- 0002:00007fa8       $unwind$__lock_fhandle     0000000180014fa8     LIBCMT:osfinfo.obj
- 0002:00007fd4       $unwind$_mbtowc_l          0000000180014fd4     LIBCMT:mbtowc.obj
- 0002:00007fec       $unwind$_putwch_nolock     0000000180014fec     LIBCMT:putwch.obj
- 0002:00007fec       $unwind$__report_gsfailure 0000000180014fec     LIBCMT:putwch.obj
- 0002:00007ff4       $unwind$_close             0000000180014ff4     LIBCMT:close.obj
- 0002:0000801c       $unwind$?_Xout_of_range@std@@YAXPEBD@Z 000000018001501c     LIBCMT:initcon.obj
- 0002:0000801c       $unwind$?_Xlength_error@std@@YAXPEBD@Z 000000018001501c     LIBCMT:initcon.obj
- 0002:0000801c       $unwind$_cfltcvt           000000018001501c     LIBCMT:initcon.obj
- 0002:0000801c       $unwind$__initconout       000000018001501c     LIBCMT:initcon.obj
- 0002:0000801c       $unwind$?_Xbad_alloc@std@@YAXXZ 000000018001501c     LIBCMT:initcon.obj
- 0002:00008024       $unwind$__delayLoadHelper2 0000000180015024     DelayImp:delayhlp.obj
- 0002:00008680       .edata                     0000000180015680     hello.exp
- 0002:000086a8       rgpv                       00000001800156a8     hello.exp
- 0002:000086ac       rgszName                   00000001800156ac     hello.exp
- 0002:000086b0       rgwOrd                     00000001800156b0     hello.exp
- 0002:000086b2       szName                     00000001800156b2     hello.exp
- 0002:000086bd       $N00001                    00000001800156bd     hello.exp
- 0002:000089ac       .idata$6                   00000001800159ac     kernel32:KERNEL32.dll
- 0002:00008a98       .idata$6                   0000000180015a98     python27:python27.dll
+ 0002:00007f30       $unwind$_write_nolock      0000000180014f30     LIBCMT:write.obj
+ 0002:00007f54       $unwind$fclose             0000000180014f54     LIBCMT:fclose.obj
+ 0002:00007f78       $unwind$__mtold12          0000000180014f78     LIBCMT:mantold.obj
+ 0002:00007f90       $unwind$_free_osfhnd       0000000180014f90     LIBCMT:osfinfo.obj
+ 0002:00007fa0       $unwind$__lock_fhandle     0000000180014fa0     LIBCMT:osfinfo.obj
+ 0002:00007fcc       $unwind$_mbtowc_l          0000000180014fcc     LIBCMT:mbtowc.obj
+ 0002:00007fe4       $unwind$_putwch_nolock     0000000180014fe4     LIBCMT:putwch.obj
+ 0002:00007fe4       $unwind$__report_gsfailure 0000000180014fe4     LIBCMT:putwch.obj
+ 0002:00007fec       $unwind$_close             0000000180014fec     LIBCMT:close.obj
+ 0002:00008014       $unwind$_cfltcvt           0000000180015014     LIBCMT:initcon.obj
+ 0002:00008014       $unwind$?_Xlength_error@std@@YAXPEBD@Z 0000000180015014     LIBCMT:initcon.obj
+ 0002:00008014       $unwind$__initconout       0000000180015014     LIBCMT:initcon.obj
+ 0002:00008014       $unwind$?_Xbad_alloc@std@@YAXXZ 0000000180015014     LIBCMT:initcon.obj
+ 0002:00008014       $unwind$?_Xout_of_range@std@@YAXPEBD@Z 0000000180015014     LIBCMT:initcon.obj
+ 0002:0000801c       $unwind$__delayLoadHelper2 000000018001501c     DelayImp:delayhlp.obj
+ 0002:00008630       .edata                     0000000180015630     hello.exp
+ 0002:00008658       rgpv                       0000000180015658     hello.exp
+ 0002:0000865c       rgszName                   000000018001565c     hello.exp
+ 0002:00008660       rgwOrd                     0000000180015660     hello.exp
+ 0002:00008662       szName                     0000000180015662     hello.exp
+ 0002:0000866d       $N00001                    000000018001566d     hello.exp
+ 0002:0000895c       .idata$6                   000000018001595c     kernel32:KERNEL32.dll
+ 0002:00008a48       .idata$6                   0000000180015a48     python27:python27.dll
  0003:00000024       ?dazSupported@?1??_ctrlfp@@9@9 0000000180016024     LIBCMT:fpctrl.obj
  0003:00000468       __rgctypeflag              0000000180016468     LIBCMT:mbctype.obj
  0003:00000470       __rgcode_page_info         0000000180016470     LIBCMT:mbctype.obj
@@ -2081,12 +2078,12 @@
  0004:00000978       $pdata$_CRT_INIT$fin$0     000000018001a978     LIBCMT:dllcrt0.obj
  0004:00000984       $pdata$__DllMainCRTStartup$filt$0 000000018001a984     LIBCMT:dllcrt0.obj
  0004:00000990       $pdata$doexit$fin$0        000000018001a990     LIBCMT:crt0dat.obj
- 0004:0000099c       $pdata$_setmbcp$fin$0      000000018001a99c     LIBCMT:mbctype.obj
  0004:0000099c       $pdata$__updatetmbcinfo$fin$0 000000018001a99c     LIBCMT:mbctype.obj
+ 0004:0000099c       $pdata$_setmbcp$fin$0      000000018001a99c     LIBCMT:mbctype.obj
  0004:000009a8       $pdata$_freefls$fin$1      000000018001a9a8     LIBCMT:tidtable.obj
  0004:000009a8       $pdata$_initptd$fin$1      000000018001a9a8     LIBCMT:tidtable.obj
- 0004:000009b4       $pdata$_freefls$fin$0      000000018001a9b4     LIBCMT:tidtable.obj
  0004:000009b4       $pdata$_initptd$fin$0      000000018001a9b4     LIBCMT:tidtable.obj
+ 0004:000009b4       $pdata$_freefls$fin$0      000000018001a9b4     LIBCMT:tidtable.obj
  0004:000009c0       $pdata$__updatetlocinfo$fin$0 000000018001a9c0     LIBCMT:wsetloca.obj
  0004:000009c0       $pdata$_locterm$fin$0      000000018001a9c0     LIBCMT:wsetloca.obj
  0004:000009cc       $pdata$_ioinit$fin$0       000000018001a9cc     LIBCMT:ioinit.obj
@@ -2098,11 +2095,11 @@
  0004:00000a14       $pdata$flsall$fin$0        000000018001aa14     LIBCMT:fflush.obj
  0004:00000a20       $pdata$flsall$fin$1        000000018001aa20     LIBCMT:fflush.obj
  0004:00000a2c       $pdata$_fcloseall$fin$0    000000018001aa2c     LIBCMT:closeall.obj
- 0004:00000a38       $pdata$_write$fin$0        000000018001aa38     LIBCMT:write.obj
- 0004:00000a44       $pdata$fclose$fin$0        000000018001aa44     LIBCMT:fclose.obj
- 0004:00000a50       $pdata$__lock_fhandle$fin$0 000000018001aa50     LIBCMT:osfinfo.obj
- 0004:00000a5c       $pdata$_commit$fin$0       000000018001aa5c     LIBCMT:close.obj
- 0004:00000a5c       $pdata$_close$fin$0        000000018001aa5c     LIBCMT:close.obj
+ 0004:00000a38       $pdata$_close$fin$0        000000018001aa38     LIBCMT:commit.obj
+ 0004:00000a38       $pdata$_commit$fin$0       000000018001aa38     LIBCMT:commit.obj
+ 0004:00000a44       $pdata$_write$fin$0        000000018001aa44     LIBCMT:write.obj
+ 0004:00000a50       $pdata$fclose$fin$0        000000018001aa50     LIBCMT:fclose.obj
+ 0004:00000a5c       $pdata$__lock_fhandle$fin$0 000000018001aa5c     LIBCMT:osfinfo.obj
  0005:00000060       $R000000                   000000018001b060     * linker generated manifest res *
 
  Exports
