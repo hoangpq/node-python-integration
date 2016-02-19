@@ -15,5 +15,8 @@
     "lodash": "^4.4.0",
     "request": "^2.69.0",
     "request-json": "^0.5.5"
+  },
+  "config": {
+    "msvs_version": 2013
   }
 }

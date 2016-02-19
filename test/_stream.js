@@ -20,7 +20,6 @@ reader
     .pipe(zlib.createGzip())
     .pipe(fs.createWriteStream('big.tar.gz'));
 
-
 reader.on('error', function (err) {
     console.log(`Something went wrong: ${err}`);
 }).on('data', function (chunk) {

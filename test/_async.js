@@ -77,7 +77,7 @@ var rq =
                     dataType: 'json'
                 }, function (error, response, body) {
                     if (error) {
-                        console.log(error);
+                        cb(`Error when request data ${error}`, null);
                     } else {
                         var obj = JSON.parse(body);
                         cb(null, obj.num);

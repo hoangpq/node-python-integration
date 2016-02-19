@@ -12,7 +12,11 @@ require('./test/_async');
 console.log(clc.green('Node stream testing'));
 require('./test/_stream');
 
-// hello.js
+// addon test
 console.log(clc.green('Testing addons'));
 const addon = require('./build/Release/hello');
-console.log(addon.hello()); // 'world'
+console.log(`Returns: ${addon.getUndefined({lat: 100, lng: 200, txt: "Hello, world"})}`);
+
+// event testing
+// console.log(clc.green(`Event emitter`));
+// require('./test/_event');
