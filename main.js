@@ -1,22 +1,29 @@
 var clc = require('cli-color');
 
-// testing iterator
-console.log(clc.green('Iterator testing'));
-require('./test/_iter');
+// Iterator test
+// console.log(clc.green('Iterator testing'));
+// require('./test/_iter');
 
-// testing async
-console.log(clc.green('Async testing'));
-require('./test/_async');
+// Async test
+// console.log(clc.green('Async testing'));
+// require('./test/_async');
 
-// testing stream
-console.log(clc.green('Node stream testing'));
-require('./test/_stream');
+// Streaming test
+// console.log(clc.green('Node stream testing'));
+// require('./test/_stream');
 
-// addon test
+// Addons test
 console.log(clc.green('Testing addons'));
-const addon = require('./build/Release/hello');
-console.log(`Returns: ${addon.getUndefined({lat: 100, lng: 200, txt: "Hello, world"})}`);
+const addon = require('./build/Release/python');
 
-// event testing
-// console.log(clc.green(`Event emitter`));
-// require('./test/_event');
+var t = new Date();
+var sorted = addon.execute('embed.test', 's');
+console.log(clc.green(`Python result:`), clc.red(`${sorted}`));
+var e = new Date() - t;
+console.log('Times', e, 'ms');
+
+var number = addon.execute('embed.test', 'f');
+console.log(clc.green(`Python Number value:`), clc.red(number));
+
+var factor = addon.execute('embed.test', 'fff', 1, 2);
+console.log(clc.green(`Factor number: `), clc.red(factor));

@@ -4,12 +4,14 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm i && node main.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "async": "^1.5.2",
+    "cli-color": "~1.0",
+    "exectimer": "^2.0.0",
     "jQuery": "^1.7.4",
     "jquery": "^2.2.0",
     "lodash": "^4.4.0",
