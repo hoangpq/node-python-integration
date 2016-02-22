@@ -25,35 +25,30 @@ namespace demo {
     public:
       static Local<Value> PytoV8Array(Isolate* isolate, PyObject* obj);
       static Local<Value> PyToV8Number(Isolate* isolate, PyObject* obj);
-      static PyObject* V8ToPyNumber(Local<Value> val);
+      static PyObject* V8ToPyNumber(Local<Number> val);
       static Local<Value> PyToV8(Isolate* isolate, PyObject* obj);
   };
 
   Local<Value> Convert::PytoV8Array(Isolate* isolate, PyObject* obj) {
+    // get len of list sequence
     int len = PySequence_Length(obj);
     Local<Object> array = Array::New(isolate, len);
     PyObject* item;
     for (int i = 0; i < len; i++) {
       item = PySequence_GetItem(obj, i);
-      array->Set(i, Number::New(isolate, PyInt_AsLong(item)));
+      array->Set(i, Convert::PyToV8Number(isolate, item));
     }
     Py_DECREF(item);
     return array;
   }
 
   Local<Value> Convert::PyToV8Number(Isolate* isolate, PyObject* obj) {
-    double res = 0;
-    if (strcmp(obj->ob_type->tp_name, "float") == 0) {
-      res = PyFloat_AsDouble(obj);
-    } else {
-      res = PyInt_AsLong(obj);
-    }
+    Local<Value> number = Number::New(isolate, PyFloat_AsDouble(obj));
     Py_DECREF(obj);
-    Local<Value> number = Number::New(isolate, res);
     return number;
   }
 
-  PyObject* Convert::V8ToPyNumber(Local<Value> val) {
+  PyObject* Convert::V8ToPyNumber(Local<Number> val) {
     return PyFloat_FromDouble(val->NumberValue());
   }
 
@@ -62,10 +57,12 @@ namespace demo {
     if (strcmp(obj->ob_type->tp_name, "list") == 0) {
       res = Convert::PytoV8Array(isolate, obj);
     }
-    if (strcmp(obj->ob_type->tp_name, "float") == 0 || 
+    if (strcmp(obj->ob_type->tp_name, "float") == 0 ||
       strcmp(obj->ob_type->tp_name, "int") == 0) {
       res = Convert::PyToV8Number(isolate, obj);
     }
+    // clean PyObject
+    Py_DECREF(obj);
     return res;
   }
 
@@ -79,10 +76,10 @@ namespace demo {
       pFunc = PyDict_GetItemString(pDict, *String::Utf8Value(args[1]->ToString()));
       if (PyCallable_Check(pFunc)) {
         if (args.Length() > 2) {
-          PyObject *pargs = PyTuple_New(args.Length());
+          PyObject *pargs = PyTuple_New(args.Length() - 2);
           for (int i = 2; i < args.Length(); i++) {
             if (args[i]->IsNumber()) {
-              PyTuple_SetItem(pargs, i - 2, Convert::V8ToPyNumber(args[i])); 
+              PyTuple_SetItem(pargs, i - 2, Convert::V8ToPyNumber(args[i]->ToNumber()));
             }
           }
           result = PyObject_CallObject(pFunc, pargs);
@@ -125,15 +122,12 @@ namespace demo {
 
     PyObject *func = PyObject_GetAttrString(moduleMain, "mul");
     PyObject *pargs = PyTuple_Pack(2, PyFloat_FromDouble(3.0), PyFloat_FromDouble(4.0));
-
     PyObject *result = PyObject_CallObject(func, pargs);
     double d_Val = PyFloat_AsDouble(result);
-
+    // clean python vm
     Py_Finalize();
-
     args.GetReturnValue().Set(String::NewFromUtf8(isolate, result->ob_type->tp_name));
     // args.GetReturnValue().Set(d_Val);
-
     // args.GetReturnValue().Set(String::NewFromUtf8(isolate, native_string.c_str()));
   }
 

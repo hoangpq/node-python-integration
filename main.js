@@ -17,13 +17,13 @@ console.log(clc.green('Testing addons'));
 const addon = require('./build/Release/python');
 
 var t = new Date();
-var sorted = addon.execute('embed.test', 's');
-console.log(clc.green(`Python result:`), clc.red(`${sorted}`));
+var sorted = addon.execute('embed.node', 'f', 4);
+console.log(clc.green(`Get factor from python recursive function:`), clc.red(`${sorted}`));
 var e = new Date() - t;
 console.log('Times', e, 'ms');
 
-var number = addon.execute('embed.test', 'f');
-console.log(clc.green(`Python Number value:`), clc.red(number));
+var factor = addon.execute('embed.node', 'fact', 10.2, 10.5);
+console.log(clc.green(`List float test: `), clc.red(factor));
 
-var factor = addon.execute('embed.test', 'fff', 1, 2);
-console.log(clc.green(`Factor number: `), clc.red(factor));
+var buildin_test = addon.execute('embed.node', 'f3');
+console.log(clc.green(`Build-in function test: `), clc.red(buildin_test));

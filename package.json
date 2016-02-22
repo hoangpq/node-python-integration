@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "npm i && node main.js"
+    "test": "python test.py && npm i && node main.js"
   },
   "author": "",
   "license": "ISC",
