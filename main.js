@@ -27,3 +27,6 @@ console.log(clc.green(`List float test: `), clc.red(factor));
 
 var buildin_test = addon.execute('embed.node', 'f3');
 console.log(clc.green(`Build-in function test: `), clc.red(buildin_test));
+
+var obj_py = addon.execute('embed.node', 'f4', {a: 1, z: {a: {b: {c: 2}}}});
+console.log(clc.green(`Get Object`), clc.red(JSON.stringify(obj_py)));

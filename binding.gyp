@@ -3,8 +3,15 @@
     {
       "target_name": "python",
       "sources": ["addons/python.cc"],
-      "include_dirs": ["C:\Python27\include"],
-      "libraries": ["C:\Python27\libs\python27.lib"]
+      "include_dirs": [
+        "C:\Python27\include",
+        "C:\Ruby200-x64\include\ruby-2.0.0",
+        "<!(node -e \"require('nan')\")",
+        "<!(node -e \"require('underscore')\")"
+      ],
+      "libraries": [
+        "C:\Python27\libs\python27.lib"
+      ]
     }
   ]
 }
