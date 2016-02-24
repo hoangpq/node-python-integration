@@ -18,6 +18,7 @@ namespace demo {
   using v8::Undefined;
   using v8::Null;
   using v8::NumberObject;
+  using v8::Context;
 
   using namespace std;
 
@@ -25,10 +26,33 @@ namespace demo {
     public:
       static Local<Value> PytoV8Array(Isolate* isolate, PyObject* obj);
       static Local<Value> PyToV8Number(Isolate* isolate, PyObject* obj);
-      static PyObject* V8ToPyNumber(Local<Number> val);
-      static Local<Value> PyToV8(Isolate* isolate, PyObject* obj);
+      static Local<Value> PytoV8Object(Isolate* isolate, PyObject* obj);
+      
+      static PyObject* V8ToPyNumber(Isolate *isolate, Local<Number> obj);
+      static PyObject* V8ToPyDict(Isolate* isolate, Local<Object> obj);
+
+      static Local<Value> PyToV8(Isolate* isolate, PyObject* obj);  
+      static PyObject* V8ToPy(Isolate* isolate, Local<Value> obj);
   };
 
+  /* Python dictionary to V8 Object */ 
+  Local<Value> Convert::PytoV8Object(Isolate* isolate, PyObject* py_obj) {
+    int len = PyMapping_Length(py_obj);
+    Local<Object> obj = Object::New(isolate);
+    PyObject* keys = PyMapping_Keys(py_obj);
+    PyObject* values = PyMapping_Values(py_obj);
+    for(int i = 0; i < len; ++i) {
+      PyObject *key = PySequence_GetItem(keys, i), 
+        *value = PySequence_GetItem(values, i),
+        *key_as_string = PyObject_Str(key);
+      obj->Set(String::NewFromUtf8(isolate, PyString_AsString(key_as_string)), Convert::PyToV8(isolate, value));
+    }
+    Py_XDECREF(keys);
+    Py_XDECREF(values);
+    return obj;
+  }
+
+  /* Python dictionary to V8 Object */
   Local<Value> Convert::PytoV8Array(Isolate* isolate, PyObject* obj) {
     // get len of list sequence
     int len = PySequence_Length(obj);
@@ -42,28 +66,53 @@ namespace demo {
     return array;
   }
 
+  /* Python int, float to V8 Number */
   Local<Value> Convert::PyToV8Number(Isolate* isolate, PyObject* obj) {
     Local<Value> number = Number::New(isolate, PyFloat_AsDouble(obj));
     Py_DECREF(obj);
     return number;
   }
 
-  PyObject* Convert::V8ToPyNumber(Local<Number> val) {
-    return PyFloat_FromDouble(val->NumberValue());
+  /* V8 Object to Python dictionary */
+  PyObject* Convert::V8ToPyDict(Isolate* isolate, Local<Object> obj) {
+    Local<Array> property_names = obj->GetPropertyNames();
+    int len = property_names->Length();
+    PyObject* py_dict = PyDict_New();
+    for(int i = 0; i < len; ++i) {
+      Local<String> str = property_names->Get(i)->ToString();
+      Local<Value> value = obj->Get(str);
+      PyDict_SetItemString(py_dict, *String::Utf8Value(str), Convert::V8ToPy(isolate, value));
+    }
+    return py_dict;
   }
 
+  /* V8 Object to Python dictionary */
+  PyObject* Convert::V8ToPyNumber(Isolate* isolate, Local<Number> obj) {
+    return PyFloat_FromDouble(obj->NumberValue());
+  }
+
+
+  /* Convert Python datatype to v8 datatype */
   Local<Value> Convert::PyToV8(Isolate* isolate, PyObject* obj) {
-    Local<Value> res = Object::New(isolate);
-    if (strcmp(obj->ob_type->tp_name, "list") == 0) {
-      res = Convert::PytoV8Array(isolate, obj);
+    if (PySequence_Check(obj)) {
+      return Convert::PytoV8Array(isolate, obj);
+    } else if (PyNumber_Check(obj)) {
+      return Convert::PyToV8Number(isolate, obj);
+    } else if (PyMapping_Check(obj)) {
+      return Convert::PytoV8Object(isolate, obj);
+    } else {
+      return Undefined(isolate);
     }
-    if (strcmp(obj->ob_type->tp_name, "float") == 0 ||
-      strcmp(obj->ob_type->tp_name, "int") == 0) {
-      res = Convert::PyToV8Number(isolate, obj);
+  }
+
+  PyObject* Convert::V8ToPy(Isolate* isolate, Local<Value> obj) {
+    if (obj->IsNumber()) {
+      return Convert::V8ToPyNumber(obj->ToNumber());
+    } else if (obj->IsObject()){
+      return Convert::V8ToPyDict(isolate, obj);
+    } else {
+      return Py_None;
     }
-    // clean PyObject
-    Py_DECREF(obj);
-    return res;
   }
 
   void Execute(const FunctionCallbackInfo<Value>& args) {
@@ -78,9 +127,7 @@ namespace demo {
         if (args.Length() > 2) {
           PyObject *pargs = PyTuple_New(args.Length() - 2);
           for (int i = 2; i < args.Length(); i++) {
-            if (args[i]->IsNumber()) {
-              PyTuple_SetItem(pargs, i - 2, Convert::V8ToPyNumber(args[i]->ToNumber()));
-            }
+            PyTuple_SetItem(pargs, i - 2, Convert::V8ToPy(isolate, args[i]));
           }
           result = PyObject_CallObject(pFunc, pargs);
         } else {

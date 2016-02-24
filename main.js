@@ -12,6 +12,9 @@ var clc = require('cli-color');
 // console.log(clc.green('Node stream testing'));
 // require('./test/_stream');
 
+console.log(clc.green('Testing buffer'));
+require('./test/_buffer.js');
+
 // Addons test
 console.log(clc.green('Testing addons'));
 const addon = require('./build/Release/python');
@@ -27,3 +30,6 @@ console.log(clc.green(`List float test: `), clc.red(factor));
 
 var buildin_test = addon.execute('embed.node', 'f3');
 console.log(clc.green(`Build-in function test: `), clc.red(buildin_test));
+
+var test_object = addon.execute('embed.node', 'f4');
+console.log(clc.green(`Build-in get object: `), clc.red(JSON.stringify(test_object)));
