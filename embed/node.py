@@ -14,4 +14,4 @@ def f3():
 
 
 def f4(d):
-	return d.get('z', {'error': 'Can\'t get this object'})
+    return d.get('z', {'error': 'Can\'t get this object'})
