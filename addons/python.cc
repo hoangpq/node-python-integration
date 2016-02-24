@@ -2,8 +2,10 @@
 #include <node.h>
 #include <Python.h>
 #include <string>
+#include <node_object_wrap.h>
+#include "nan.h"
 
-namespace demo {
+/*namespace demo {
 
   using v8::FunctionCallbackInfo;
   using v8::Isolate;
@@ -18,7 +20,7 @@ namespace demo {
   using v8::Undefined;
   using v8::Null;
   using v8::NumberObject;
-  using v8::Context;
+
 
   using namespace std;
 
@@ -26,33 +28,35 @@ namespace demo {
     public:
       static Local<Value> PytoV8Array(Isolate* isolate, PyObject* obj);
       static Local<Value> PyToV8Number(Isolate* isolate, PyObject* obj);
-      static Local<Value> PytoV8Object(Isolate* isolate, PyObject* obj);
+      static Local<Value> PyToV8Object(Isolate *isolate, PyObject *obj);
+      // convert python datatype to v8 datatype
+      static Local<Value> PyToV8(Isolate* isolate, PyObject* obj);
       
-      static PyObject* V8ToPyNumber(Isolate *isolate, Local<Number> obj);
-      static PyObject* V8ToPyDict(Isolate* isolate, Local<Object> obj);
-
-      static Local<Value> PyToV8(Isolate* isolate, PyObject* obj);  
-      static PyObject* V8ToPy(Isolate* isolate, Local<Value> obj);
+      static PyObject* V8ToPySeq(Isolate *isolate, Local<Value> obj);
+      static PyObject* V8ToPyNumber(Isolate *isolate, Local<Value> obj);
+      static PyObject* V8ToPyDict(Isolate *isolate, Local<Value> obj);
+      // convert v8 datatype to python datatype
+      static PyObject* V8ToPy(Isolate *isolate, Local<Value> obj);
   };
 
-  /* Python dictionary to V8 Object */ 
-  Local<Value> Convert::PytoV8Object(Isolate* isolate, PyObject* py_obj) {
-    int len = PyMapping_Length(py_obj);
-    Local<Object> obj = Object::New(isolate);
-    PyObject* keys = PyMapping_Keys(py_obj);
-    PyObject* values = PyMapping_Values(py_obj);
+  // python dict -> v8 object
+  Local<Value> Convert::PyToV8Object(Isolate *isolate, PyObject *obj) {
+    Local<Object> jsObj = Object::New(isolate);
+    int len = PyMapping_Length(obj);
+    PyObject* keys = PyMapping_Keys(obj);
+    PyObject* values = PyMapping_Values(obj);
     for(int i = 0; i < len; ++i) {
-      PyObject *key = PySequence_GetItem(keys, i), 
-        *value = PySequence_GetItem(values, i),
-        *key_as_string = PyObject_Str(key);
-      obj->Set(String::NewFromUtf8(isolate, PyString_AsString(key_as_string)), Convert::PyToV8(isolate, value));
+      PyObject *key = PySequence_GetItem(keys, i),
+               *value = PySequence_GetItem(values, i),
+               *key_as_string = PyObject_Str(key);
+      jsObj->Set(String::NewFromUtf8(isolate, PyString_AsString(key_as_string)), Convert::PyToV8(isolate, value));
+      Py_XDECREF(key);
+      Py_XDECREF(key_as_string);
     }
-    Py_XDECREF(keys);
-    Py_XDECREF(values);
-    return obj;
+    return jsObj;
   }
 
-  /* Python dictionary to V8 Object */
+  // python array -> v8 array
   Local<Value> Convert::PytoV8Array(Isolate* isolate, PyObject* obj) {
     // get len of list sequence
     int len = PySequence_Length(obj);
@@ -66,50 +70,69 @@ namespace demo {
     return array;
   }
 
-  /* Python int, float to V8 Number */
+  // python number -> v8 number
   Local<Value> Convert::PyToV8Number(Isolate* isolate, PyObject* obj) {
     Local<Value> number = Number::New(isolate, PyFloat_AsDouble(obj));
     Py_DECREF(obj);
     return number;
   }
 
-  /* V8 Object to Python dictionary */
-  PyObject* Convert::V8ToPyDict(Isolate* isolate, Local<Object> obj) {
-    Local<Array> property_names = obj->GetPropertyNames();
-    int len = property_names->Length();
-    PyObject* py_dict = PyDict_New();
-    for(int i = 0; i < len; ++i) {
-      Local<String> str = property_names->Get(i)->ToString();
-      Local<Value> value = obj->Get(str);
-      PyDict_SetItemString(py_dict, *String::Utf8Value(str), Convert::V8ToPy(isolate, value));
-    }
-    return py_dict;
-  }
-
-  /* V8 Object to Python dictionary */
-  PyObject* Convert::V8ToPyNumber(Isolate* isolate, Local<Number> obj) {
-    return PyFloat_FromDouble(obj->NumberValue());
-  }
-
-
-  /* Convert Python datatype to v8 datatype */
+  // convert python data to v8 data
   Local<Value> Convert::PyToV8(Isolate* isolate, PyObject* obj) {
-    if (PySequence_Check(obj)) {
-      return Convert::PytoV8Array(isolate, obj);
-    } else if (PyNumber_Check(obj)) {
+    if (PyNumber_Check(obj)) {
       return Convert::PyToV8Number(isolate, obj);
+    } else if (PySequence_Check(obj)) {
+      return Convert::PytoV8Array(isolate, obj);
     } else if (PyMapping_Check(obj)) {
-      return Convert::PytoV8Object(isolate, obj);
+      return Convert::PyToV8Object(isolate, obj);
     } else {
       return Undefined(isolate);
     }
   }
 
+  // v8 number to python number
+  PyObject* Convert::V8ToPyNumber(Isolate *isolate, Local<Value> obj) {
+    return PyFloat_FromDouble(obj->NumberValue());
+  }
+
+  // v8 number to python number
+  PyObject* Convert::V8ToPySeq(Isolate *isolate, Local<Value> &obj) {
+    if (obj->IsArray()) {
+      Local<Array> array = Array::Cast(*obj);
+      int len = array->Length();
+      PyObject* pyList = PyList_New(len);
+      for (int i = 0; i < len; i++) {
+        Local<Value> jsVal = array->Get(i);
+        PyList_SET_ITEM(pyList, i, Convert::V8ToPy(isolate, jsVal));
+      }
+      return pyList;
+    } else {
+      Py_INCREF(Py_None);
+      return Py_None;
+    }
+  }
+
+  // v8 object to python dict
+  PyObject* Convert::V8ToPyDict(Isolate *isolate, Local<Value> obj) {
+    Local<Object> jsObj = obj->ToObject();
+    Local<Array> property_names = jsObj->GetPropertyNames();
+    int len = property_names->Length();
+    PyObject* py_dict = PyDict_New();
+    for(int i = 0; i < len; ++i) {
+      Local<String> str = property_names->Get(i)->ToString();
+      Local<Value> js_val = jsObj->Get(str);
+      PyDict_SetItemString(py_dict, *String::Utf8Value(str), Convert::V8ToPy(isolate, js_val));
+    }
+    return py_dict;
+  }
+
   PyObject* Convert::V8ToPy(Isolate* isolate, Local<Value> obj) {
     if (obj->IsNumber()) {
-      return Convert::V8ToPyNumber(obj->ToNumber());
-    } else if (obj->IsObject()){
+      return Convert::V8ToPyNumber(isolate, obj);
+    } else if (obj->IsObject()) {
       return Convert::V8ToPyDict(isolate, obj);
+    } else if (obj->IsArray()) {
+      return Convert::V8ToPySeq(isolate, obj);
     } else {
       return Py_None;
     }
@@ -154,10 +177,8 @@ namespace demo {
     string native_string(PyString_AsString(as_string));
     Py_XDECREF(as_string);
 
-    /* execute python code */
     Py_Initialize();
 
-    /* execute some code */
     PyObject *moduleMainString = PyString_FromString("__main__");
     PyObject *moduleMain = PyImport_Import(moduleMainString);
 
@@ -184,5 +205,132 @@ namespace demo {
   }
 
   NODE_MODULE(addon, init)
+
+}  // namespace demo
+
+*/
+
+// myobject.cc
+#include "myobject.h"
+#include "nan.h"
+
+namespace demo {
+
+    using namespace node;
+    using namespace v8;
+
+    Persistent<Function> MyObject::constructor;
+
+    MyObject::MyObject(double value) : value_(value) {}
+    MyObject::MyObject(PyObject *pyObj): mPyObject(pyObj) {}
+
+    MyObject::~MyObject() {}
+
+    void MyObject::Init(Local<Object> exports) {
+      Isolate* isolate = exports->GetIsolate();
+
+      // Prepare constructor template
+      Local<FunctionTemplate> tpl = FunctionTemplate::New(isolate, New);
+      tpl->SetClassName(String::NewFromUtf8(isolate, "MyObject"));
+      tpl->InstanceTemplate()->SetInternalFieldCount(1);
+
+      // Prototype
+      NODE_SET_PROTOTYPE_METHOD(tpl, "plusOne", PlusOne);
+      NODE_SET_PROTOTYPE_METHOD(tpl, "import", Import);
+      constructor.Reset(isolate, tpl->GetFunction());
+      exports->Set(String::NewFromUtf8(isolate, "MyObject"), tpl->GetFunction());
+    }
+
+    Handle<Value> MyObject::Method(const FunctionCallbackInfo& args) {
+    }
+
+    void MyObject::Import(const FunctionCallbackInfo<Value>& args) {
+        Isolate* isolate = args.GetIsolate();
+
+        HandleScope scope(isolate);
+
+        Py_Initialize();
+
+        PyObject *pName, *pModule;
+        pName = PyString_FromString(*String::Utf8Value(args[0]->ToString()));
+        pModule = PyImport_Import(pName);
+
+        MyObject* wrapper = new MyObject(pModule);
+        Local<Object> jsobject = Object::New(isolate);
+
+        PyObject *dict = PyModule_GetDict(pModule);
+        int len = PyMapping_Length(dict);
+        PyObject* keys = PyMapping_Keys(dict);
+        PyObject* values = PyMapping_Values(dict);
+
+        for(int i = 0; i < len; ++i) {
+            PyObject *key = PySequence_GetItem(keys, i),
+            *value = PySequence_GetItem(values, i),
+            *key_as_string = PyObject_Str(key);
+            if (PyCallable_Check(value)) {
+
+                Local<FunctionTemplate> tpl = FunctionTemplate::New(&Method);
+                Local<Function> fn = tpl->GetFunction();
+
+                // Local<Function> cons = Nan::New<Function>(constructor);
+                // Local<Object> instance = cons->NewInstance();
+
+                jsobject->Set(String::NewFromUtf8(isolate, PyString_AsString(key_as_string)), fn);
+            }
+            // jsobject->Set(String::NewFromUtf8(isolate, PyString_AsString(key_as_string)), Convert::PyToV8(isolate, value));
+            Py_XDECREF(key);
+            Py_XDECREF(key_as_string);
+        }
+
+        // wrapper->Wrap(obj);
+
+        Py_DECREF(pModule);
+        Py_DECREF(pName);
+
+        Py_Finalize();
+
+        args.GetReturnValue().Set(jsobject);
+    }
+
+    void MyObject::New(const FunctionCallbackInfo<Value>& args) {
+      Isolate* isolate = args.GetIsolate();
+
+      if (args.IsConstructCall()) {
+        // Invoked as constructor: `new MyObject(...)`
+        double value = args[0]->IsUndefined() ? 0 : args[0]->NumberValue();
+        PyObject *pName, *pModule;
+
+        Py_Initialize();
+
+        pName = PyString_FromString("sys");
+        pModule = PyImport_Import(pName);
+        MyObject* wrapper = new MyObject(pModule);
+
+        Py_Finalize();
+
+        // MyObject* obj = new MyObject(value);
+        wrapper->Wrap(args.This());
+        args.GetReturnValue().Set(args.This());
+      } else {
+        // Invoked as plain function `MyObject(...)`, turn into construct call.
+        const int argc = 1;
+        Local<Value> argv[argc] = { args[0] };
+        Local<Function> cons = Local<Function>::New(isolate, constructor);
+        args.GetReturnValue().Set(cons->NewInstance(argc, argv));
+      }
+    }
+
+    void MyObject::PlusOne(const FunctionCallbackInfo<Value>& args) {
+      Isolate* isolate = args.GetIsolate();
+      MyObject* obj = ObjectWrap::Unwrap<MyObject>(args.Holder());
+      obj->value_ += 1;
+      args.GetReturnValue().Set(Number::New(isolate, obj->value_));
+    }
+
+    void InitAll(Local<Object> exports) {
+      MyObject::Init(exports);
+    }
+
+    NODE_MODULE(addon, InitAll)
 
 }  // namespace demo

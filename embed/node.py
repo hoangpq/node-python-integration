@@ -13,5 +13,5 @@ def f3():
     return partial(f, 5)()
 
 
-def f4():
-    return {'z': {'a': 1, 'b': 2}, 'a': 1, 'b': 2}
+def f4(d):
+	return d.get('z', {'error': 'Can\'t get this object'})
