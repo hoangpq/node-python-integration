@@ -226,6 +226,16 @@ namespace demo {
 
     MyObject::~MyObject() {}
 
+    void MyObject::MyFunction(const FunctionCallbackInfo<Value>& args) {
+      Isolate* isolate = args.GetIsolate();
+      args.GetReturnValue().Set(String::NewFromUtf8(isolate, "hello world"));
+    }
+
+    void MyObject::MinusOne(const FunctionCallbackInfo<Value>& args) {
+      Isolate* isolate = args.GetIsolate();
+      args.GetReturnValue().Set(Number::New(isolate, 10));
+    }
+
     void MyObject::Init(Local<Object> exports) {
       Isolate* isolate = exports->GetIsolate();
 
@@ -236,12 +246,10 @@ namespace demo {
 
       // Prototype
       NODE_SET_PROTOTYPE_METHOD(tpl, "plusOne", PlusOne);
+      NODE_SET_PROTOTYPE_METHOD(tpl, "method", MinusOne);
       NODE_SET_PROTOTYPE_METHOD(tpl, "import", Import);
       constructor.Reset(isolate, tpl->GetFunction());
       exports->Set(String::NewFromUtf8(isolate, "MyObject"), tpl->GetFunction());
-    }
-
-    Handle<Value> MyObject::Method(const FunctionCallbackInfo& args) {
     }
 
     void MyObject::Import(const FunctionCallbackInfo<Value>& args) {
@@ -269,7 +277,7 @@ namespace demo {
             *key_as_string = PyObject_Str(key);
             if (PyCallable_Check(value)) {
 
-                Local<FunctionTemplate> tpl = FunctionTemplate::New(&Method);
+                Local<FunctionTemplate> tpl = FunctionTemplate::New(isolate, MinusOne);
                 Local<Function> fn = tpl->GetFunction();
 
                 // Local<Function> cons = Nan::New<Function>(constructor);

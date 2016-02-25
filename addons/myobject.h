@@ -12,7 +12,7 @@ class MyObject : public node::ObjectWrap {
  PyObject* mPyObject;
  public:
   static void Init(v8::Local<v8::Object> exports);
-  v8::Handle<v8::Value> Method(const v8::FunctionCallbackInfo& args);
+  void MyFunction(const v8::FunctionCallbackInfo<v8::Value>& args);
 
  private:
   explicit MyObject(double value = 0);
@@ -22,6 +22,7 @@ class MyObject : public node::ObjectWrap {
   static void New(const v8::FunctionCallbackInfo<v8::Value>& args);
   static void Import(const v8::FunctionCallbackInfo<v8::Value>& args);
   static void PlusOne(const v8::FunctionCallbackInfo<v8::Value>& args);
+  static void MinusOne(const v8::FunctionCallbackInfo<v8::Value>& args);
   static v8::Persistent<v8::Function> constructor;
   double value_;
 };
