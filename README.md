@@ -1,8 +1,5 @@
 # Running Python VM in NodeJS
 
-[![Ubuntu](https://badge.fury.io/js/react-native.svg)](https://badge.fury.io/js/react-native) 
-[![MacOSX](https://badge.fury.io/js/react-native.svg)](https://badge.fury.io/js/react-native)
-
 ## Installation
 
 Install `node-gyp` with `npm`
@@ -25,5 +22,7 @@ $ node-gyp configure
 $ node-gyp build
 $ node ./main.js
 ```
+
+`Tested on my OSX and Ubuntu`
 
 :sparkles::sparkles::sparkles::sparkles::sparkles::sparkles:
