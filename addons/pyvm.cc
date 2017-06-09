@@ -22,7 +22,11 @@ namespace vm {
       Isolate* isolate = args.GetIsolate();
       PyVM *obj = ObjectWrap::Unwrap<PyVM>(args.Holder());
       PyObject *pDict = PyModule_GetDict(obj->mPyObject);
-      char* funcName = *String::Utf8Value(args[0]->ToString());
+
+      // convert to char*
+      String::Utf8Value str(args[0]);
+      const char *funcName = *str;
+
       PyObject *pFunc = PyDict_GetItemString(pDict, funcName);
       int len = args.Length();
       PyObject *result;
