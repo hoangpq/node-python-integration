@@ -30,9 +30,9 @@ npm run build && npm test
 ```
 
 ```
-Result of sys.getrecursionlimit() is 1000
-Result of sys.getrefcount(0) is 1
-Result pow(2, 3) is 8
+Result of sys.getrecursionlimit() = 1000
+Result of sys.getrefcount(0) = 1
+Result of pow(2, 3) = 8
 ```
 
 
