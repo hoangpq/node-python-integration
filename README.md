@@ -36,6 +36,6 @@ npm run build && npm test
 ```
 
 
-`Tested on my OSX and Ubuntu`
+`Tested on OSX and Ubuntu`
 
 :sparkles::sparkles::sparkles::sparkles::sparkles::sparkles:
