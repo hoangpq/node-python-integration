@@ -17,6 +17,8 @@ You will also need to install:
 
 ## Examples
 
+How to run
+
 ```bash
 $ node-gyp configure
 $ node-gyp build
