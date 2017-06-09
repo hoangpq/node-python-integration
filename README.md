@@ -22,6 +22,17 @@ $ node-gyp configure
 $ node-gyp build
 $ node ./main.js
 ```
+or
+```bash
+npm run build && npm test
+```
+
+```
+9 Jun 16:06:02 - Result of sys.getrecursionlimit() is 1000
+9 Jun 16:06:02 - Result of sys.getrefcount(0) is 1
+9 Jun 16:06:02 - Result pow(2, 3) is 8
+```
+
 
 `Tested on my OSX and Ubuntu`
 

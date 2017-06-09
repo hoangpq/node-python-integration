@@ -4,8 +4,9 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "python test.py && npm i && node main.js",
-    "addon": "npm i && node _addons.js"
+    "configure": "node-gyp configure",
+    "build": "rm -rf ./build && node-gyp configure && node-gyp build",
+    "test": "node main.js"
   },
   "author": "",
   "license": "ISC",

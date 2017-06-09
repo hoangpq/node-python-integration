@@ -57,9 +57,9 @@ PyObject* Convert::V8ToPyNumber(Isolate *isolate, Local<Value> obj) {
 }
 
 // v8 number to python number
-PyObject* Convert::V8ToPySeq(Isolate *isolate, Local<Value> &obj) {
+PyObject* Convert::V8ToPySeq(Isolate *isolate, Local<Value> obj) {
     if (obj->IsArray()) {
-      Local<Array> array = Array::Cast(*obj);
+      Local<Array> array = Local<Array>::Cast(obj);
       int len = array->Length();
       PyObject* pyList = PyList_New(len);
       for (int i = 0; i < len; i++) {
@@ -87,6 +87,7 @@ PyObject* Convert::V8ToPyDict(Isolate *isolate, Local<Value> obj) {
     return py_dict;
 }
 
+// convert v8 data to python data
 PyObject* Convert::V8ToPy(Isolate* isolate, Local<Value> obj) {
     if (obj->IsNumber()) {
       return Convert::V8ToPyNumber(isolate, obj);

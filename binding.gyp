@@ -1,9 +1,10 @@
 {
-  "targets": [
+  'targets': [
       {
-          "target_name": "main",
-          "sources": [
-              "addons/python.cc"
+          'target_name': 'pyvm',
+          'sources': [
+              "addons/convert.cc",
+              "addons/pyvm.cc"
           ],
           'libraries': [
               '<!@(pkg-config python2 --libs)',
