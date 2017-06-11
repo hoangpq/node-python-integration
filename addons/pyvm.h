@@ -27,7 +27,7 @@ namespace vm {
         static void Callback(const FunctionCallbackInfo<Value>& args);
 
         // Callbacks that access maps
-        static void MapGet(Local<Name> name, const PropertyCallbackInfo<Value>& info);
+        static void MapGet(Local<String> name, const PropertyCallbackInfo<Value>& info);
         static void MapSet(Local<Name> name, Local<Value> value,
                              const PropertyCallbackInfo<Value>& info);
 

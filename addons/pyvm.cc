@@ -61,15 +61,17 @@ namespace vm {
     }
 
     void PyVM::Callback(const FunctionCallbackInfo<Value>& args) {
+        cout << "Callable" << endl;
+        args.GetReturnValue().Set(Local<Value>());
     }
 
-    void PyVM::MapGet(Local<Name> name, const PropertyCallbackInfo<Value>& info) {
+    void PyVM::MapGet(Local<String> property, const PropertyCallbackInfo<Value>& info) {
+        cout << "Map get" << endl;
         info.GetReturnValue().Set(Local<Value>());
     }
 
     void PyVM::MapSet(Local<Name> name, Local<Value> value_obj,
                                         const PropertyCallbackInfo<Value>& info) {
-
       info.GetReturnValue().Set(Local<Value>());
     }
 
@@ -77,12 +79,20 @@ namespace vm {
         Isolate* isolate = exports->GetIsolate();
         // Prepare constructor template
         Local<FunctionTemplate> tpl = FunctionTemplate::New(isolate, New);
+        Local<ObjectTemplate> proto = tpl->PrototypeTemplate();
+        Local<ObjectTemplate> obj_tpl = tpl->InstanceTemplate();
+
+        proto->SetAccessor(String::NewFromUtf8(isolate, "valueOf"), MapGet);
         tpl->SetClassName(String::NewFromUtf8(isolate, "vm"));
 
-        Local<ObjectTemplate> obj_tpl = tpl->InstanceTemplate();
         obj_tpl->SetInternalFieldCount(1);
-        // obj_tpl->SetNamedPropertyHandler(MapGet, MapSet);
-        obj_tpl->SetCallAsFunctionHandler(Callback, Handle<Value>());
+        obj_tpl->SetNamedPropertyHandler(MapGet);
+
+        // If we're calling `toString`, delegate to our version of ToString
+        // proto->SetAccessor(String::NewSymbol("toString"), ToStringAccessor);
+        // likewise for valueOf
+        // Python objects can be called as functions.
+        obj_tpl->SetCallAsFunctionHandler(Call, Handle<Value>());
 
         // Prototype
         NODE_SET_PROTOTYPE_METHOD(tpl, "import", Import);
@@ -103,12 +113,31 @@ namespace vm {
         const char *funcName = *str;
         PyObject *pName = PyString_FromString(*String::Utf8Value(args[0]->ToString()));
         PyObject *moduleMain = PyImport_Import(pName);
+
+        Py_XDECREF(pName);
         PyVM* vm = new PyVM(moduleMain);
+
+        proto->SetAccessor(String::NewFromUtf8(isolate, "valueOf"), MapGet);
+
         const unsigned argc = 1;
         Local<Value> argv[argc] = { args[0] };
         Local<Function> cons = Local<Function>::New(isolate, constructor);
         Local<Context> context = isolate->GetCurrentContext();
         Local<Object> instance = cons->NewInstance(context, argc, argv).ToLocalChecked();
+
+        PyObject *dict = PyModule_GetDict(vm->mPyObject);
+        PyObject* keys = PyMapping_Keys(dict);
+        int len = PySequence_Length(keys);
+        Local<Object> arr = Array::New(isolate, len);
+        for (int i = 0; i < len; i++) {
+            PyObject *key = PySequence_GetItem(keys, i),
+                     *key_as_string = PyObject_Str(key);
+
+            char* funcName = PyString_AsString(key_as_string);
+
+        }
+
+
         vm->Wrap(instance);
 
         args.GetReturnValue().Set(instance);

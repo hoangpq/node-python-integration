@@ -9,4 +9,7 @@ log(`Result pow(2, 3) is ${__builtin__.call('pow', 2, 3)}`);
 log(`Result of sys.getrecursionlimit() is ${sys.call('getrecursionlimit')}`);
 log(`Result of sys.getrefcount(0) is ${sys.call('getrefcount', 0)}`);
 
-console.log(__builtin__.list());
+
+console.log(__builtin__.pow(2, 3));
+
+// console.log(__builtin__.list);
