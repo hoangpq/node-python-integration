@@ -27,7 +27,7 @@ namespace vm {
         static void Callback(const FunctionCallbackInfo<Value>& args);
 
         // Callbacks that access maps
-        static Local<Value> GetConstant(Isolate* isolate, Local<String> key, PyVM vm);
+        static Local<Value> GetConstant(Isolate* isolate, Local<String> key, PyVM *vm);
         static Persistent<Function> constructor;
     };
 
