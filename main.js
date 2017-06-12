@@ -3,13 +3,10 @@ const pyvm = require('./build/Release/pyvm');
 
 const __builtin__ = pyvm.import('__builtin__');
 const sys = pyvm.import('sys');
+const math = pyvm.import('math');
 
 // call function
-log(`Result pow(2, 3) is ${__builtin__.call('pow', 2, 3)}`);
-log(`Result of sys.getrecursionlimit() is ${sys.call('getrecursionlimit')}`);
-log(`Result of sys.getrefcount(0) is ${sys.call('getrefcount', 0)}`);
-
-
-console.log(__builtin__.pow(2, 3));
-
-// console.log(__builtin__.list);
+log(`Result of pow(2, 3) is ${__builtin__.pow(2, 3)}`);
+log(`Result of sys.getrecursionlimit() is ${sys.getrecursionlimit()}`);
+log(`Result of sys.getrefcount(0) is ${sys.getrefcount(0)}`);
+log(`Result math.pi is ${math.pi()}`);
