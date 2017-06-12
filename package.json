@@ -6,25 +6,17 @@
   "scripts": {
     "configure": "node-gyp configure",
     "build": "rm -rf ./build && node-gyp configure && node-gyp build",
-    "test": "node main.js"
+    "test": "node main.js",
+    "start": "yarn run build && yarn test"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "async": "^1.5.2",
-    "cli-color": "~1.0",
-    "exectimer": "^2.0.0",
-    "jQuery": "^1.7.4",
-    "jquery": "^2.2.0",
-    "lodash": "^4.4.0",
-    "request": "^2.69.0",
-    "request-json": "^0.5.5"
   },
   "config": {
-    "msvs_version": 2013
+    "msvs_version": 2015
   },
   "dependencies": {
-    "nan": "^2.2.0",
-    "sqlite3": "^3.1.1"
+    "nan": "^2.2.0"
   }
 }
