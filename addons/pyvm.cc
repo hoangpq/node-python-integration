@@ -29,7 +29,7 @@ namespace vm {
         int len = args.Length();
 
         PyObject *result;
-        if (PyCallable_Check(pFunc) == 1) {
+        if (PyCallable_Check(pFunc)) {
             if (len > 1) {
                 PyObject *pargs = PyTuple_New(len - 1);
                 for (int i = 1; i < args.Length(); i++) {
@@ -61,37 +61,55 @@ namespace vm {
     }
 
     void PyVM::Callback(const FunctionCallbackInfo<Value>& args) {
-    }
+        Isolate* isolate = args.GetIsolate();
+        Local<String> fname = Local<String>::Cast(args.Callee()->GetName());
 
-    void PyVM::MapGet(Local<Name> name, const PropertyCallbackInfo<Value>& info) {
-        info.GetReturnValue().Set(Local<Value>());
-    }
+        // unwrap node object
+        PyVM *vm = ObjectWrap::Unwrap<PyVM>(args.Holder());
+        PyObject *pDict = PyModule_GetDict(vm->mPyObject);
+        // convert to char*
+        String::Utf8Value str(fname);
+        const char *funcName = *str;
 
-    void PyVM::MapSet(Local<Name> name, Local<Value> value_obj,
-                                        const PropertyCallbackInfo<Value>& info) {
-
-      info.GetReturnValue().Set(Local<Value>());
+        PyObject *pFunc = PyDict_GetItemString(pDict, funcName);
+        int len = args.Length();
+        PyObject *result;
+        if (!PyCallable_Check(pFunc)) {
+            result = pFunc;
+        } else {
+            if (len > 0) {
+                PyObject* pargs = PyTuple_New(len);
+                for (int i = 0; i < len; i++) {
+                    PyTuple_SetItem(pargs, i, Convert::V8ToPy(isolate, args[i]));
+                }
+                result = PyObject_CallObject(pFunc, pargs);
+            } else {
+                result = PyObject_CallObject(pFunc, NULL);
+            }
+        }
+        Local<Value> val = Convert::PyToV8(isolate, result);
+        // destroy
+        Py_XDECREF(pDict);
+        Py_XDECREF(pFunc);
+        Py_XDECREF(result);
+        args.GetReturnValue().Set(val);
     }
 
     void PyVM::Init(Local<Object> exports) {
         Isolate* isolate = exports->GetIsolate();
         // Prepare constructor template
         Local<FunctionTemplate> tpl = FunctionTemplate::New(isolate, New);
-        tpl->SetClassName(String::NewFromUtf8(isolate, "vm"));
-
+        Local<ObjectTemplate> proto = tpl->PrototypeTemplate();
         Local<ObjectTemplate> obj_tpl = tpl->InstanceTemplate();
         obj_tpl->SetInternalFieldCount(1);
-        // obj_tpl->SetNamedPropertyHandler(MapGet, MapSet);
-        obj_tpl->SetCallAsFunctionHandler(Callback, Handle<Value>());
 
         // Prototype
         NODE_SET_PROTOTYPE_METHOD(tpl, "import", Import);
         NODE_SET_PROTOTYPE_METHOD(tpl, "call", Call);
         NODE_SET_PROTOTYPE_METHOD(tpl, "list", List);
 
+        // export construction
         constructor.Reset(isolate, tpl->GetFunction());
-        // exports->Set(String::NewFromUtf8(isolate, "vm"), tpl->GetFunction());
-
         Local<FunctionTemplate> import = FunctionTemplate::New(isolate, Import);
         exports->Set(String::NewFromUtf8(isolate, "import"), import->GetFunction());
     }
@@ -103,16 +121,35 @@ namespace vm {
         const char *funcName = *str;
         PyObject *pName = PyString_FromString(*String::Utf8Value(args[0]->ToString()));
         PyObject *moduleMain = PyImport_Import(pName);
+        Py_XDECREF(pName);
+
         PyVM* vm = new PyVM(moduleMain);
         const unsigned argc = 1;
         Local<Value> argv[argc] = { args[0] };
         Local<Function> cons = Local<Function>::New(isolate, constructor);
         Local<Context> context = isolate->GetCurrentContext();
         Local<Object> instance = cons->NewInstance(context, argc, argv).ToLocalChecked();
+
+        PyObject* dict = PyModule_GetDict(moduleMain);
+        PyObject* keys = PyMapping_Keys(dict);
+        int len = PySequence_Length(keys);
+        for (int i = 0; i < len; i++) {
+            PyObject *key = PySequence_GetItem(keys, i),
+                     *key_as_string = PyObject_Str(key);
+            char* funcName = PyString_AsString(key_as_string);
+            Local<String> jsKey = String::NewFromUtf8(isolate, funcName);
+            PyObject* item = PyDict_GetItemString(dict, funcName);
+            if (PyCallable_Check(item)) {
+                Local<FunctionTemplate> getter = FunctionTemplate::New(isolate, Callback);
+                Local<Function> func = getter->GetFunction();
+                func->SetName(String::NewFromUtf8(isolate, funcName));
+                instance->Set(jsKey, func);
+            }
+        }
+        Py_XDECREF(keys);
+        Py_XDECREF(dict);
         vm->Wrap(instance);
-
         args.GetReturnValue().Set(instance);
-
     }
 
     void PyVM::New(const FunctionCallbackInfo<Value>& args) {
@@ -120,9 +157,6 @@ namespace vm {
         if (args.IsConstructCall()) {
             args.GetReturnValue().Set(args.This());
         } else {
-
-            cout << "Create template to handle function" << endl;
-
             const int argc = 1;
             Local<Value> argv[argc] = { args[0] };
             Local<Function> cons = Local<Function>::New(isolate, constructor);
