@@ -7,16 +7,17 @@
     "configure": "node-gyp configure",
     "build": "rm -rf ./build && node-gyp configure && node-gyp build",
     "test": "node main.js",
-    "start": "yarn run build && yarn test"
+    "start": "yarn run build && yarn test",
+    "async:test": "node async.js"
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "config": {
     "msvs_version": 2015
   },
   "dependencies": {
-    "nan": "^2.2.0"
+    "nan": "^2.2.0",
+    "webworker-threads": "^0.7.11"
   }
 }
